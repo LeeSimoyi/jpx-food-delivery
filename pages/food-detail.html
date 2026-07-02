@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Product Detail — JPX Food</title>
+  <link rel="icon" href="../assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+  <style>a,a:hover,a:visited{text-decoration:none!important}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem;font-weight:500;margin-bottom:20px;transition:color .2s}
+.back-link:hover{color:var(--primary)}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:64px}
+.detail-img-wrap{position:relative;background:var(--bg);border-radius:var(--r-xl);padding:40px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--gray)}
+.detail-img-wrap img{max-width:85%;max-height:85%;object-fit:contain}
+.detail-cat{color:var(--muted);font-size:.82rem;font-weight:500;text-transform:capitalize}
+.detail-info h1{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin:8px 0 14px}
+.detail-rating{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+.stars i{color:var(--accent);font-size:.9rem;margin-right:2px}
+.detail-rating strong{font-weight:700;font-size:.9rem}
+.detail-rating span{color:var(--muted);font-size:.85rem}
+.detail-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.dp-main{font-size:2rem;font-weight:900;color:var(--text)}
+.dp-old{font-size:1.1rem;color:var(--gray2);text-decoration:line-through!important}
+.detail-desc{color:var(--muted);font-size:.92rem;margin-bottom:18px;line-height:1.65}
+.stock-row{display:flex;align-items:center;gap:8px;color:var(--green);font-weight:600;font-size:.875rem;margin-bottom:26px}
+.detail-actions{display:flex;gap:14px;align-items:center}
+.qty-box{display:flex;align-items:center;gap:0;border:1.5px solid var(--gray2);border-radius:100px;padding:4px}
+.qty-box .cqb{width:34px;height:34px}
+.qty-box .cqn{min-width:32px;font-size:.95rem}
+/* Reviews */
+.reviews-section{padding:48px 0;border-top:1px solid var(--gray);margin-top:8px}
+.reviews-summary{display:grid;grid-template-columns:200px 1fr;gap:40px;background:var(--bg);border-radius:var(--r-lg);padding:28px 32px;margin:20px 0 32px;align-items:center}
+.rs-score{text-align:center}
+.rs-score strong{display:block;font-size:2.6rem;font-weight:900;line-height:1}
+.rs-score .stars{display:block;margin:8px 0}
+.rs-score span{font-size:.82rem;color:var(--muted)}
+.rs-bars{display:flex;flex-direction:column;gap:9px}
+.rs-bar-row{display:grid;grid-template-columns:32px 1fr 24px;align-items:center;gap:10px;font-size:.82rem;color:var(--muted)}
+.bar{height:8px;background:var(--gray);border-radius:100px;overflow:hidden}
+.bar div{height:100%;background:var(--accent);border-radius:100px}
+.review-item{padding:18px 0;border-bottom:1px solid var(--gray);display:flex;gap:14px}
+.review-item:last-child{border-bottom:none}
+.review-avatar{width:38px;height:38px;border-radius:50%;background:var(--primary-lt);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;flex-shrink:0}
+.review-body{flex:1}
+.review-hd{display:flex;align-items:center;gap:10px;margin-bottom:5px;flex-wrap:wrap}
+.review-hd strong{font-size:.875rem}
+.review-date{font-size:.75rem;color:var(--muted)}
+.review-stars i{color:var(--accent);font-size:.78rem}
+.review-text{font-size:.85rem;color:var(--text2);line-height:1.6;margin:6px 0}
+.review-helpful{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--muted)}
+.related-section{padding-top:24px;border-top:1px solid var(--gray)}
+@media(max-width:900px){.detail-layout{grid-template-columns:1fr}.reviews-summary{grid-template-columns:1fr}}
+@media(max-width:480px){.detail-actions{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+    </a>
+    <ul class="nav-links"><li><a href="../index.html" class="nav-link">Home</a></li><li><a href="menu.html" class="nav-link">Our Menu</a></li><li><a href="deals.html" class="nav-link deals">Deals</a></li></ul>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass nav-search-icon"></i>
+      <input type="text" placeholder="Search food or drinks…" id="navSearch" autocomplete="off"/>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-cart-btn" id="cartBtn" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount" style="opacity:0;transform:scale(0)">0</span></button>
+      <!-- Sign In (shown when logged out) -->
+      <a href="login.html" class="nav-signin" id="navSignin"><i class="fa-regular fa-user"></i> Sign In</a>
+      <!-- Profile avatar (shown when logged in) -->
+      <div class="nav-profile" id="navProfile" style="display:none">
+        <div class="nav-avatar" id="navProfileInit">U</div>
+        <span class="nav-profile-name" id="navProfileName">Account</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:.65rem;color:var(--muted)"></i>
+        <div class="nav-profile-dropdown" id="navProfileDropdown">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge"></i> My Account</a>
+          <a href="tracking.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+          <a href="dashboard.html"><i class="fa-solid fa-receipt"></i> Order History</a>
+          <div class="nav-profile-divider"></div>
+          <button onclick="navLogout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-header">
+    <a href="../index.html" class="nav-logo" style="color:var(--dark)">
+      <span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+    </a>
+    <button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <nav class="drawer-nav"><a href="../index.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-house"></i></span><span>Home</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a><a href="menu.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-bowl-food"></i></span><span>Our Menu</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a><a href="deals.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-tag"></i></span><span>Deals</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a></nav>
+  <div class="drawer-footer">
+    <a href="login.html" class="drawer-btn-outline"><i class="fa-regular fa-user"></i> Sign In</a>
+    <a href="menu.html" class="drawer-btn-solid"><i class="fa-solid fa-bowl-food"></i> Order Now</a>
+  </div>
+</div>
+
+<div class="page-hero" style="padding-bottom:0">
+  <div class="page-hero-inner">
+    <div class="breadcrumb" id="breadcrumbWrap">
+      <a href="../index.html"><i class="fa-solid fa-house"></i></a><i class="fa-solid fa-chevron-right"></i>
+      <a href="menu.html">Our Menu</a><i class="fa-solid fa-chevron-right"></i>
+      <span id="bcCat">Category</span><i class="fa-solid fa-chevron-right"></i>
+      <span id="bcName">Item</span>
+    </div>
+  </div>
+</div>
+<section class="section" style="padding-top:28px">
+  <div class="container">
+    <a href="javascript:history.back()" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back</a>
+    <div class="detail-layout">
+      <div class="detail-img-wrap">
+        <span class="discount-badge" id="dDiscount" style="position:absolute;top:16px;left:16px;font-size:.78rem;padding:5px 14px">10% OFF</span>
+        <img id="dImg" src="" alt="" loading="eager"/>
+      </div>
+      <div class="detail-info">
+        <span class="detail-cat" id="dCat">Category</span>
+        <h1 id="dName">Product Name</h1>
+        <div class="detail-rating">
+          <span class="stars" id="dStars"></span>
+          <strong id="dRatingNum">4.5</strong>
+          <span id="dReviewCount">(12 reviews)</span>
+        </div>
+        <div class="detail-price-row">
+          <span class="dp-main" id="dPriceMain">$90.00</span>
+          <span class="dp-old" id="dPriceOld">$100.00</span>
+        </div>
+        <p class="detail-desc" id="dDesc">Boosts immunity, rich in fibre</p>
+        <div class="stock-row"><i class="fa-solid fa-circle-check"></i> <span id="dStock">In Stock (92 available)</span></div>
+        <div class="detail-actions">
+          <div class="qty-box">
+            <button class="cqb" onclick="changeDetailQty(-1)"><i class="fa-solid fa-minus"></i></button>
+            <span class="cqn" id="dQty">1</span>
+            <button class="cqb" onclick="changeDetailQty(1)"><i class="fa-solid fa-plus"></i></button>
+          </div>
+          <button class="btn btn-primary btn-lg" id="dAddBtn" style="flex:1" onclick="addDetailToCart()">
+            <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews-section">
+      <h2 class="sec-title">Customer Reviews</h2>
+      <div class="reviews-summary">
+        <div class="rs-score">
+          <strong id="rsAvg">4.5</strong>
+          <span class="stars" id="rsStars"></span>
+          <span id="rsCount">12 reviews</span>
+        </div>
+        <div class="rs-bars">
+          <div class="rs-bar-row"><span>5★</span><div class="bar"><div style="width:50%"></div></div><span>3</span></div>
+          <div class="rs-bar-row"><span>4★</span><div class="bar"><div style="width:50%"></div></div><span>3</span></div>
+          <div class="rs-bar-row"><span>3★</span><div class="bar"><div style="width:0%"></div></div><span>0</span></div>
+          <div class="rs-bar-row"><span>2★</span><div class="bar"><div style="width:0%"></div></div><span>0</span></div>
+          <div class="rs-bar-row"><span>1★</span><div class="bar"><div style="width:0%"></div></div><span>0</span></div>
+        </div>
+      </div>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+
+    <!-- RELATED -->
+    <div class="related-section">
+      <div class="sec-hdr">
+        <h2 class="sec-title">Related Products</h2>
+        <a href="menu.html" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="grid-5" id="relatedGrid"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-grid">
+      <div>
+        <a href="../index.html" class="footer-logo">
+          <span class="footer-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+          <span>JPX<em>Food</em></span>
+        </a>
+        <p>Fresh, delicious meals delivered to your door in Mutare, Zimbabwe. Quality food, every time.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <div style="margin-top:18px">
+          <p style="font-size:.78rem;font-weight:600;margin-bottom:8px;opacity:.7">Get weekly deals &amp; offers:</p>
+          <div class="footer-nl-form">
+            <input type="email" placeholder="Your email address" id="footerNlEmail"/>
+            <button onclick="subscribeNewsletter()"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="deals.html">Flash Deals</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="login.html">My Account</a></li>
+          <li><a href="dashboard.html">Order History</a></li>
+          <li><a href="tracking.html">Track Order</a></li>
+          <li><a href="dashboard.html">Addresses</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Help Centre</a></li>
+          <li><a href="../admin/login.html" style="opacity:.5">Admin Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>12 Herbert Chitepo St, Mutare, Zimbabwe</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+263 77 123 4567</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>jpxfood@gmail.com</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sun: 8AM – 10PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <p>&copy; 2025 JPX Food. All rights reserved.</p>
+    <div class="footer-pay">
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <i class="fa-solid fa-money-bill-wave"></i>
+    </div>
+  </div>
+</footer>
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-hd">
+    <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart <span id="cartPanelCount" style="color:var(--muted);font-weight:400;font-size:.85rem"></span></h3>
+    <button class="cart-panel-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-panel-body" id="cartPanelBody"></div>
+  <div class="cart-panel-ft">
+    <div class="cart-sum-row"><span>Subtotal</span><span class="v" id="cartPanelTotal">$0.00</span></div>
+    <div class="cart-sum-row delivery"><span>Delivery</span><span class="v">Free</span></div>
+    <div class="cart-sum-row total"><span>Total</span><span id="cartPanelTotalFinal">$0.00</span></div>
+    <button class="cart-checkout-btn" onclick="window.location='checkout.html'">
+      <i class="fa-solid fa-lock"></i> Proceed to Checkout
+    </button>
+  </div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../assets/js/app.js"></script>
+<script>
+let detailProduct=null, detailQty=1;
+const REVIEWS=[
+  {name:'Tatenda M.',init:'TM',rating:5,date:'24 Jun 2026',text:'Absolutely delicious! The food arrived hot and fresh. Best burger in Mutare — will definitely be ordering again.',helpful:24},
+  {name:'Chipo N.',init:'CN',rating:5,date:'18 Jun 2026',text:'Arrived quickly and tasted amazing. My whole family enjoyed it. The portions are generous and the flavours are spot on.',helpful:18},
+  {name:'Rudo D.',init:'RD',rating:4,date:'10 Jun 2026',text:'Really good food, I was impressed by the quality. Delivery was fast too. Will definitely order again soon.',helpful:11},
+  {name:'Tinashe G.',init:'TG',rating:4,date:'28 May 2026',text:'Solid meal overall. The sadza was cooked perfectly and the beef stew had great flavour. Highly recommended.',helpful:9},
+  {name:'Farai S.',init:'FS',rating:5,date:'14 May 2026',text:'Exceeded my expectations! Freshly prepared, well seasoned and delivered on time. JPX Food never disappoints.',helpful:14},
+];
+function starsHTML(n){
+  let h='';for(let i=1;i<=5;i++) h+=`<i class="fa-solid fa-star" style="opacity:${i<=Math.round(n)?1:.25}"></i>`;
+  return h;
+}
+function loadDetail(){
+  const id=parseInt(new URLSearchParams(window.location.search).get('id'))||1;
+  detailProduct=PRODUCTS.find(p=>p.id===id)||PRODUCTS[0];
+  const p=detailProduct;
+  const off=Math.round((1-p.price/p.old)*100);
+  document.title=p.name+' — JPX Food';
+  document.getElementById('dDiscount').textContent=off+'% OFF';
+  document.getElementById('dImg').src=p.img; document.getElementById('dImg').alt=p.name;
+  document.getElementById('dCat').textContent=p.cat;
+  document.getElementById('dName').textContent=p.name;
+  document.getElementById('dStars').innerHTML=starsHTML(p.rating);
+  document.getElementById('dRatingNum').textContent=p.rating;
+  document.getElementById('dReviewCount').textContent='('+p.reviews+' reviews)';
+  document.getElementById('dPriceMain').textContent='$'+p.price.toFixed(2);
+  document.getElementById('dPriceOld').textContent='$'+p.old.toFixed(2);
+  document.getElementById('dDesc').textContent=p.desc+'. Made fresh daily with quality ingredients.';
+  document.getElementById('dStock').textContent='In Stock ('+(40+p.id*3)+' available)';
+  document.getElementById('bcCat').textContent=p.cat;
+  document.getElementById('bcName').textContent=p.name;
+  document.getElementById('rsAvg').textContent=p.rating;
+  document.getElementById('rsStars').innerHTML=starsHTML(p.rating);
+  document.getElementById('rsCount').textContent=p.reviews+' reviews';
+  document.getElementById('reviewList').innerHTML=REVIEWS.map(r=>`
+    <div class="review-item">
+      <div class="review-avatar">${r.init}</div>
+      <div class="review-body">
+        <div class="review-hd"><strong>${r.name}</strong><span class="review-date">${r.date}</span></div>
+        <div class="review-stars">${starsHTML(r.rating)}</div>
+        <p class="review-text">${r.text}</p>
+        <div class="review-helpful"><i class="fa-regular fa-thumbs-up"></i> Helpful (${r.helpful})</div>
+      </div>
+    </div>`).join('');
+  const related=PRODUCTS.filter(x=>x.cat===p.cat && x.id!==p.id).slice(0,5);
+  const finalRelated = related.length ? related : PRODUCTS.filter(x=>x.id!==p.id).slice(0,5);
+  document.getElementById('relatedGrid').innerHTML=finalRelated.map(x=>productCardHTML(x,'')).join('');
+  initReveal();
+}
+function changeDetailQty(d){ detailQty=Math.max(1,detailQty+d); document.getElementById('dQty').textContent=detailQty; }
+function addDetailToCart(){
+  if(!detailProduct)return;
+  const ex=cart.find(c=>c.id===detailProduct.id);
+  if(ex) ex.qty+=detailQty; else cart.push({...detailProduct,qty:detailQty});
+  saveCart();updateCartUI();renderCartPanel();bumpBadge();
+  showToast(`<i class="fa-solid fa-check"></i> ${detailQty>1?detailQty+'× ':''}${detailProduct.name} added to cart`,'success');
+}
+document.addEventListener('DOMContentLoaded',loadDetail);
+</script>
+</body>
+</html>

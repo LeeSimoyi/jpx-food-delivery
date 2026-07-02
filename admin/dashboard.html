@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Dashboard — JPX Food</title>
+  <link rel="icon" href="../assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+  <style>
+    a,a:hover,a:visited{text-decoration:none!important}
+    body{padding-top:0}
+  </style>
+</head>
+<body class="admin-body">
+
+<div class="admin-overlay" id="adminOverlay"></div>
+
+<div class="admin-layout">
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="admin-sidebar-brand">
+      <span class="logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+      <span class="admin-badge">ADMIN</span>
+    </div>
+    <nav class="admin-nav">
+      <div class="admin-nav-item active" data-p="overview" onclick="switchAdminPanel('overview',this)">
+        <i class="fa-solid fa-chart-line"></i> Overview
+      </div>
+      <div class="admin-nav-item" data-p="orders" onclick="switchAdminPanel('orders',this)">
+        <i class="fa-solid fa-receipt"></i> Orders <span class="admin-nav-badge" id="pendingBadge">0</span>
+      </div>
+      <div class="admin-nav-item" data-p="menu" onclick="switchAdminPanel('menu',this)">
+        <i class="fa-solid fa-bowl-food"></i> Menu Items
+      </div>
+      <div class="admin-nav-item" data-p="customers" onclick="switchAdminPanel('customers',this)">
+        <i class="fa-solid fa-users"></i> Customers
+      </div>
+      <div class="admin-nav-item" data-p="analytics" onclick="switchAdminPanel('analytics',this)">
+        <i class="fa-solid fa-chart-pie"></i> Analytics
+      </div>
+      <div class="admin-nav-item" data-p="settings" onclick="switchAdminPanel('settings',this)">
+        <i class="fa-solid fa-gear"></i> Settings
+      </div>
+    </nav>
+    <div class="admin-sidebar-footer">
+      <div class="admin-user-chip">
+        <div class="admin-avatar" id="adminAvatar">JA</div>
+        <div><strong id="adminName">JPX Admin</strong><span id="adminEmail">jpxfood@gmail.com</span></div>
+      </div>
+      <button class="admin-logout-btn" onclick="adminLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+        <button class="admin-hamburger" id="adminHamburger"><i class="fa-solid fa-bars"></i></button>
+        <h1 id="topbarTitle">Dashboard Overview</h1>
+      </div>
+      <div class="admin-topbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="adminGlobalSearch" placeholder="Search orders, items…" autocomplete="off"/>
+      </div>
+      <div class="admin-topbar-actions">
+        <button class="admin-icon-btn" id="adminNotifBtn" title="Notifications" onclick="showNotifPanel()">
+          <i class="fa-regular fa-bell"></i>
+          <span class="admin-notif-dot" id="adminNotifDot"></span>
+        </button>
+        <a href="../index.html" class="admin-icon-btn" title="View Live Site" target="_blank"><i class="fa-solid fa-store"></i></a>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- ═══════ OVERVIEW ═══════ -->
+      <div class="admin-panel active" id="ap-overview">
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <div class="asc-icon orange"><i class="fa-solid fa-receipt"></i></div>
+            <div class="asc-body"><strong id="statTotalOrders">0</strong><span>Total Orders</span><div class="asc-trend up"><i class="fa-solid fa-arrow-up"></i> 12% this week</div></div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="asc-icon green"><i class="fa-solid fa-dollar-sign"></i></div>
+            <div class="asc-body"><strong id="statRevenue">$0.00</strong><span>Total Revenue</span><div class="asc-trend up"><i class="fa-solid fa-arrow-up"></i> 8% this week</div></div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="asc-icon amber"><i class="fa-solid fa-clock"></i></div>
+            <div class="asc-body"><strong id="statPending">0</strong><span>Pending Orders</span><div class="asc-trend">Needs action</div></div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="asc-icon dark"><i class="fa-solid fa-bowl-food"></i></div>
+            <div class="asc-body"><strong id="statMenuItems">20</strong><span>Menu Items</span><div class="asc-trend up"><i class="fa-solid fa-arrow-up"></i> Active</div></div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-hd">
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> Recent Orders</h3>
+            <button class="btn btn-outline btn-sm" onclick="switchAdminPanel('orders', document.querySelector('[data-p=orders]'))">View All</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Time</th></tr></thead>
+              <tbody id="recentOrdersBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-hd"><h3><i class="fa-solid fa-fire"></i> Best Selling Items</h3></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Rating</th><th>Orders</th></tr></thead>
+              <tbody id="bestSellersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ ORDERS ═══════ -->
+      <div class="admin-panel" id="ap-orders">
+        <div class="admin-tabs" id="orderTabs">
+          <div class="admin-tab active" data-s="all" onclick="filterOrdersByStatus('all',this)">All Orders</div>
+          <div class="admin-tab" data-s="pending" onclick="filterOrdersByStatus('pending',this)">Pending</div>
+          <div class="admin-tab" data-s="confirmed" onclick="filterOrdersByStatus('confirmed',this)">Confirmed</div>
+          <div class="admin-tab" data-s="preparing" onclick="filterOrdersByStatus('preparing',this)">Preparing</div>
+          <div class="admin-tab" data-s="delivered" onclick="filterOrdersByStatus('delivered',this)">Delivered</div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-hd">
+            <h3><i class="fa-solid fa-receipt"></i> Order Management</h3>
+            <div class="search-box-admin"><i class="fa-solid fa-magnifying-glass"></i><input type="text" class="form-input" id="orderSearchInput" placeholder="Search order ID…"/></div>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="ordersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ MENU ITEMS ═══════ -->
+      <div class="admin-panel" id="ap-menu">
+        <div class="admin-card">
+          <div class="admin-card-hd">
+            <h3><i class="fa-solid fa-bowl-food"></i> Menu Management</h3>
+            <button class="btn btn-primary btn-sm" onclick="openFoodModal()"><i class="fa-solid fa-plus"></i> Add New Item</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Old Price</th><th>Rating</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="menuTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ CUSTOMERS ═══════ -->
+      <div class="admin-panel" id="ap-customers">
+        <div class="admin-card">
+          <div class="admin-card-hd"><h3><i class="fa-solid fa-users"></i> Registered Customers</h3></div>
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead><tr><th>Name</th><th>Email</th><th>Orders</th><th>Total Spent</th><th>Joined</th></tr></thead>
+              <tbody id="customersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ ANALYTICS ═══════ -->
+      <div class="admin-panel" id="ap-analytics">
+        <div class="admin-card">
+          <div class="admin-card-hd"><h3><i class="fa-solid fa-chart-pie"></i> Sales by Category</h3></div>
+          <div style="padding:24px" id="categoryAnalytics"></div>
+        </div>
+        <div class="admin-card">
+          <div class="admin-card-hd"><h3><i class="fa-solid fa-credit-card"></i> Payment Method Breakdown</h3></div>
+          <div style="padding:24px" id="paymentAnalytics"></div>
+        </div>
+      </div>
+
+      <!-- ═══════ SETTINGS ═══════ -->
+      <div class="admin-panel" id="ap-settings">
+        <div class="admin-card">
+          <div class="admin-card-hd"><h3><i class="fa-solid fa-store"></i> Restaurant Settings</h3></div>
+          <div style="padding:22px">
+            <div class="admin-form-grid">
+              <div class="form-group"><label class="form-label">Restaurant Name</label><input class="form-input" value="JPX Food"/></div>
+              <div class="form-group"><label class="form-label">Contact Email</label><input class="form-input" value="jpxfood@gmail.com"/></div>
+              <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" value="+263 77 123 4567"/></div>
+              <div class="form-group"><label class="form-label">Delivery Fee</label><input class="form-input" value="Free"/></div>
+              <div class="form-group full"><label class="form-label">Address</label><input class="form-input" value="12 Herbert Chitepo St, Mutare, Zimbabwe"/></div>
+            </div>
+            <button class="btn btn-primary" style="margin-top:16px" onclick="showAdminToast('success','Settings saved successfully')"><i class="fa-solid fa-check"></i> Save Settings</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE FAB: Quick Add Item -->
+<button class="admin-fab" onclick="openFoodModal()" title="Add new menu item">
+  <i class="fa-solid fa-plus"></i>
+</button>
+
+<!-- ADMIN NOTIFICATIONS PANEL -->
+<div class="modal-backdrop" id="notifBackdrop" style="display:none">
+  <div class="modal-box" style="max-width:400px;text-align:left;max-height:80vh;overflow-y:auto">
+    <h3 style="margin-bottom:16px;display:flex;align-items:center;gap:10px">
+      <i class="fa-regular fa-bell" style="color:var(--primary)"></i> Notifications
+    </h3>
+    <div id="notifList"></div>
+    <div class="modal-btns" style="margin-top:16px">
+      <button class="btn btn-outline" onclick="document.getElementById('notifBackdrop').style.display='none'">Close</button>
+      <button class="btn btn-primary" onclick="markAllRead()"><i class="fa-solid fa-check"></i> Mark All Read</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD / EDIT FOOD MODAL -->
+<div class="modal-backdrop" id="foodModalBackdrop" style="align-items:flex-start;padding:24px;overflow-y:auto">
+  <div class="modal-box" style="max-width:520px;text-align:left;width:100%;margin:auto">
+    <h3 id="foodModalTitle" style="margin-bottom:18px">Add New Menu Item</h3>
+    <div class="admin-img-upload" onclick="document.getElementById('foodImgInput').click()" id="imgUploadZone">
+      <img id="foodImgPreview" class="admin-img-preview" style="display:none"/>
+      <i class="fa-solid fa-cloud-arrow-up" id="uploadIcon"></i>
+      <p id="uploadText">Click to upload food image (or paste an image URL below)</p>
+    </div>
+    <input type="file" id="foodImgInput" accept="image/*" style="display:none"/>
+    <div class="admin-form-grid" style="margin-top:16px">
+      <div class="form-group full"><label class="form-label">Item Name *</label><input class="form-input" id="fName" placeholder="e.g. Beef Burger Deluxe"/></div>
+      <div class="form-group"><label class="form-label">Category *</label>
+        <select class="form-select" id="fCat">
+          <option>Burgers</option><option>Pizza</option><option>Chicken</option>
+          <option>Local Meals</option><option>Sides</option><option>Desserts</option><option>Drinks</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Unit</label><input class="form-input" id="fUnit" placeholder="e.g. 1pc"/></div>
+      <div class="form-group"><label class="form-label">Price ($) *</label><input type="number" step="0.01" class="form-input" id="fPrice" placeholder="5.50"/></div>
+      <div class="form-group"><label class="form-label">Old Price ($)</label><input type="number" step="0.01" class="form-input" id="fOldPrice" placeholder="6.50"/></div>
+      <div class="form-group full"><label class="form-label">Image URL</label><input class="form-input" id="fImgUrl" placeholder="https://images.unsplash.com/..."/></div>
+      <div class="form-group full"><label class="form-label">Description</label><textarea class="form-textarea" id="fDesc" placeholder="Short appetising description…" style="min-height:70px"></textarea></div>
+    </div>
+    <div class="modal-btns" style="margin-top:18px">
+      <button class="btn btn-outline" onclick="closeFoodModal()">Cancel</button>
+      <button class="btn btn-primary" id="saveFoodBtn" onclick="saveFoodItem()"><i class="fa-solid fa-check"></i> Save Item</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../assets/js/app.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

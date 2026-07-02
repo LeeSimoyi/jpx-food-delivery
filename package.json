@@ -1,0 +1,10 @@
+{
+  "name": "jpx-food-v2",
+  "version": "2.0.0",
+  "description": "JPX Food - Online food ordering platform for Mutare, Zimbabwe",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "license": "MIT"
+}

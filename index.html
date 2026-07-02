@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Home — JPX Food</title>
+  <link rel="icon" href="assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="assets/css/main.css"/>
+  <style>a,a:hover,a:visited{text-decoration:none!important}
+/* HERO */
+.hero-section{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=80') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,17,1,.88) 0%,rgba(46,31,8,.7) 55%,rgba(60,40,10,.3) 100%)}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:40px;padding-top:32px;padding-bottom:32px}
+.hero-content{flex:1;max-width:580px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(232,71,10,.18);border:1px solid rgba(232,71,10,.35);color:rgba(255,255,255,.88);padding:7px 16px;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:20px;backdrop-filter:blur(8px)}
+.hero-title{font-family:var(--font-d);font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:18px}
+.hero-title em{color:var(--primary);font-style:italic}
+.hero-sub{color:rgba(255,255,255,.68);font-size:.97rem;line-height:1.75;margin-bottom:28px;max-width:480px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-food-cards{display:flex;gap:14px;flex-shrink:0}
+.hero-food-card{background:rgba(255,255,255,.1);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px;text-align:center;min-width:110px;transition:transform .3s}
+.hero-food-card:hover{transform:translateY(-6px)}
+.hero-food-card.featured{background:rgba(232,71,10,.25);border-color:rgba(232,71,10,.5)}
+.hero-food-card img{width:76px;height:76px;border-radius:12px;object-fit:cover;margin:0 auto 10px}
+.hero-food-card span{color:var(--white);font-size:.75rem;font-weight:600}
+/* FEATURE STRIP */
+.feature-strip{background:var(--white);border-bottom:1px solid var(--gray);padding:20px 0}
+.feature-strip-inner{max-width:1280px;margin:0 auto;padding:0 var(--g);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.feature-item{display:flex;align-items:center;gap:13px;flex:1;min-width:160px}
+.fi-icon{width:44px;height:44px;border-radius:12px;background:var(--primary-lt);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem;flex-shrink:0}
+.feature-item strong{display:block;font-weight:700;font-size:.875rem;color:var(--text)}
+.feature-item span{font-size:.77rem;color:var(--muted)}
+.fi-divider{width:1px;height:40px;background:var(--gray);flex-shrink:0}
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px}
+.cat-card{background:var(--white);border-radius:var(--r-lg);padding:16px 10px;text-align:center;border:1.5px solid var(--gray);transition:all var(--tr);display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer}
+.cat-card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:var(--sh)}
+.cat-card.deals-cat{background:var(--primary-lt);border-color:rgba(232,71,10,.25)}
+.cat-img{width:70px;height:70px;border-radius:50%;overflow:hidden;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-img img{width:100%;height:100%;object-fit:cover}
+.cat-card span{font-weight:600;font-size:.8rem;color:var(--text)}
+.cat-card:hover span{color:var(--primary)}
+/* APP BANNER */
+.app-banner{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:clamp(40px,6vw,64px) var(--g)}
+.app-banner-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.app-banner-text{flex:1;min-width:280px}
+.app-banner-text h2{font-family:var(--font-d);font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:900;color:var(--white);margin-bottom:12px}
+.app-banner-text p{color:rgba(255,255,255,.55);font-size:.9rem;max-width:480px;margin-bottom:26px;line-height:1.7}
+.app-btns{display:flex;gap:12px;flex-wrap:wrap}
+.app-btn{display:flex;align-items:center;gap:11px;padding:12px 22px;border-radius:14px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:var(--white);transition:all .3s}
+.app-btn:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.45)}
+.app-btn.dark{background:var(--primary);border-color:var(--primary)}
+.app-btn.dark:hover{background:var(--primary-dk)}
+.app-btn i{font-size:1.6rem}
+.app-btn div span{display:block;font-size:.7rem;opacity:.7}
+.app-btn div strong{display:block;font-size:.92rem;font-weight:700}
+.app-banner-img{width:260px;height:200px;border-radius:20px;overflow:hidden;flex-shrink:0}
+.app-banner-img img{width:100%;height:100%;object-fit:cover}
+/* NEWSLETTER */
+.newsletter-section{padding:clamp(48px,6vw,80px) var(--g);background:var(--white)}
+.newsletter-box{max-width:600px;margin:0 auto;background:var(--bg);border:1.5px solid var(--gray);border-radius:24px;padding:48px 40px;text-align:center}
+.nl-icon{width:56px;height:56px;border-radius:14px;background:var(--primary-lt);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--primary);margin:0 auto 18px}
+.newsletter-box h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+.newsletter-box p{color:var(--muted);font-size:.875rem;line-height:1.65;margin-bottom:24px}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto}
+.nl-form input{flex:1;padding:12px 18px;border-radius:100px;border:1.5px solid var(--gray2);background:var(--white);font-family:var(--font);font-size:.875rem;outline:none;transition:border-color .3s;-webkit-appearance:none}
+.nl-form input:focus{border-color:var(--primary)}
+.nl-form button{padding:12px 24px;border-radius:100px;background:var(--dark);color:var(--white);border:none;font-weight:700;font-size:.875rem;cursor:pointer;font-family:var(--font);transition:background .2s;white-space:nowrap}
+.nl-form button:hover{background:var(--primary)}
+@media(max-width:1100px){.cat-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:768px){
+  .hero-inner{flex-direction:column;text-align:center;padding-top:80px}
+  .hero-content{max-width:100%}
+  .hero-food-cards{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .feature-strip-inner{justify-content:center;gap:22px}
+  .fi-divider{display:none}
+  .app-banner-img{display:none}
+  .newsletter-box{padding:32px 20px}
+}
+@media(max-width:480px){.cat-grid{grid-template-columns:repeat(2,1fr)}.nl-form{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+    </a>
+    <ul class="nav-links"><li><a href="index.html" class="nav-link active">Home</a></li><li><a href="pages/menu.html" class="nav-link">Our Menu</a></li><li><a href="pages/deals.html" class="nav-link deals">Deals</a></li></ul>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass nav-search-icon"></i>
+      <input type="text" placeholder="Search food or drinks…" id="navSearch" autocomplete="off"/>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-cart-btn" id="cartBtn" aria-label="Cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cartCount" style="opacity:0;transform:scale(0)">0</span>
+      </button>
+      <!-- Sign In (shown when logged out) -->
+      <a href="pages/login.html" class="nav-signin" id="navSignin"><i class="fa-regular fa-user"></i> Sign In</a>
+      <!-- Profile avatar (shown when logged in) -->
+      <div class="nav-profile" id="navProfile" style="display:none">
+        <div class="nav-avatar" id="navProfileInit">U</div>
+        <span class="nav-profile-name" id="navProfileName">Account</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:.65rem;color:var(--muted)"></i>
+        <div class="nav-profile-dropdown" id="navProfileDropdown">
+          <a href="pages/dashboard.html"><i class="fa-solid fa-gauge"></i> My Account</a>
+          <a href="pages/tracking.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+          <a href="pages/dashboard.html"><i class="fa-solid fa-receipt"></i> Order History</a>
+          <div class="nav-profile-divider"></div>
+          <button onclick="navLogout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div></div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-header">
+    <a href="index.html" class="nav-logo" style="color:var(--dark)">
+      <span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+    </a>
+    <button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <nav class="drawer-nav"><a href="index.html" class="drawer-link active"><span class="drawer-link-icon"><i class="fa-solid fa-house"></i></span><span>Home</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a><a href="pages/menu.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-bowl-food"></i></span><span>Our Menu</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a><a href="pages/deals.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-tag"></i></span><span>Deals</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a></nav>
+  <div class="drawer-footer">
+    <a href="pages/login.html" class="drawer-btn-outline"><i class="fa-regular fa-user"></i> Sign In</a>
+    <a href="pages/menu.html" class="drawer-btn-solid"><i class="fa-solid fa-bowl-food"></i> Order Now</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero-section" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <i class="fa-solid fa-fire-burner"></i> Now Delivering in Mutare
+      </div>
+      <h1 class="hero-title reveal">
+        Taste the World<br>from <em>Your Kitchen</em>
+      </h1>
+      <p class="hero-sub reveal">
+        Unlock a world of flavour with our authentic recipes. Fresh meals prepared daily and delivered fast to your doorstep.
+      </p>
+      <div class="hero-btns reveal">
+        <a href="pages/menu.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-bowl-food"></i> Order Now
+        </a>
+        <a href="pages/menu.html" class="btn btn-outline-white btn-lg">
+          <i class="fa-solid fa-grip"></i> Browse Menu
+        </a>
+      </div>
+    </div>
+    <div class="hero-food-cards reveal">
+      <div class="hero-food-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=140&q=80" alt="Pizza"/>
+        <span>Margherita Pizza</span>
+      </div>
+      <div class="hero-food-card featured">
+        <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=140&q=80" alt="Chicken"/>
+        <span>Grilled Chicken</span>
+      </div>
+      <div class="hero-food-card">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=140&q=80" alt="Dessert"/>
+        <span>Chocolate Cake</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="container">
+    <div class="feature-strip-inner">
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        <div><strong>Free Delivery</strong><span>Orders over $8</span></div>
+      </div>
+      <div class="fi-divider"></div>
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-fire-burner"></i></div>
+        <div><strong>Fresh Daily</strong><span>Prepared every morning</span></div>
+      </div>
+      <div class="fi-divider"></div>
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-clock"></i></div>
+        <div><strong>30 Min Delivery</strong><span>Express service</span></div>
+      </div>
+      <div class="fi-divider"></div>
+      <div class="feature-item">
+        <div class="fi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div><strong>Secure Pay</strong><span>Stripe &amp; EcoCash</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-tag"><i class="fa-solid fa-grip"></i> Browse</div>
+        <h2 class="sec-title">Food Categories</h2>
+        <p class="sec-sub">Find exactly what you're craving</p>
+      </div>
+    </div>
+    <div class="cat-grid">
+      <a href="pages/menu.html?cat=Burgers" class="cat-card reveal">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&q=80" alt="Burgers" loading="lazy"/></div>
+        <span>Burgers</span>
+      </a>
+      <a href="pages/menu.html?cat=Pizza" class="cat-card reveal" style="--delay:.05s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&q=80" alt="Pizza" loading="lazy"/></div>
+        <span>Pizza</span>
+      </a>
+      <a href="pages/menu.html?cat=Chicken" class="cat-card reveal" style="--delay:.1s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=200&q=80" alt="Chicken" loading="lazy"/></div>
+        <span>Chicken</span>
+      </a>
+      <a href="pages/menu.html?cat=Local Meals" class="cat-card reveal" style="--delay:.15s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&q=80" alt="Local" loading="lazy"/></div>
+        <span>Local Meals</span>
+      </a>
+      <a href="pages/menu.html?cat=Sides" class="cat-card reveal" style="--delay:.2s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=200&q=80" alt="Sides" loading="lazy"/></div>
+        <span>Sides</span>
+      </a>
+      <a href="pages/menu.html?cat=Desserts" class="cat-card reveal" style="--delay:.25s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=200&q=80" alt="Desserts" loading="lazy"/></div>
+        <span>Desserts</span>
+      </a>
+      <a href="pages/menu.html?cat=Drinks" class="cat-card reveal" style="--delay:.3s">
+        <div class="cat-img"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&q=80" alt="Drinks" loading="lazy"/></div>
+        <span>Drinks</span>
+      </a>
+      <a href="pages/deals.html" class="cat-card deals-cat reveal" style="--delay:.35s">
+        <div class="cat-img"><i class="fa-solid fa-bolt" style="font-size:2.5rem;color:var(--primary)"></i></div>
+        <span>Flash Deals</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR PRODUCTS -->
+<section class="section" style="background:var(--bg)">
+  <div class="container">
+    <div class="sec-hdr">
+      <div>
+        <div class="sec-tag"><i class="fa-solid fa-fire"></i> Hot Picks</div>
+        <h2 class="sec-title">Popular Dishes</h2>
+        <p class="sec-sub">Top-rated meals this week</p>
+      </div>
+      <a href="pages/menu.html" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="grid-5" id="popularGrid"></div>
+  </div>
+</section>
+
+<!-- APP DOWNLOAD BANNER -->
+<div class="app-banner">
+  <div class="container">
+    <div class="app-banner-inner">
+      <div class="app-banner-text">
+        <h2>Get fresh food in minutes</h2>
+        <p>Download the JPX Food app for exclusive deals, real-time tracking, and the freshest meals delivered right to your door.</p>
+        <div class="app-btns">
+          <a href="#" class="app-btn"><i class="fa-brands fa-apple"></i><div><span>Download on</span><strong>App Store</strong></div></a>
+          <a href="#" class="app-btn dark"><i class="fa-brands fa-google-play"></i><div><span>Get it on</span><strong>Google Play</strong></div></a>
+        </div>
+      </div>
+      <div class="app-banner-img">
+        <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&q=80" alt="Delivery" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-box">
+      <div class="nl-icon"><i class="fa-solid fa-envelope"></i></div>
+      <h3>Subscribe to our Newsletter</h3>
+      <p>Get weekly updates on new menu items, flash deals, and exclusive discounts right to your inbox.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Enter your email address" id="nlEmail"/>
+        <button onclick="subscribeNL()">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <span class="footer-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+          <span>JPX<em>Food</em></span>
+        </a>
+        <p>Fresh, delicious meals delivered to your door in Mutare, Zimbabwe. Quality food, every time.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <div style="margin-top:18px">
+          <p style="font-size:.78rem;font-weight:600;margin-bottom:8px;opacity:.7">Get weekly deals &amp; offers:</p>
+          <div class="footer-nl-form">
+            <input type="email" placeholder="Your email address" id="footerNlEmail"/>
+            <button onclick="subscribeNewsletter()"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/menu.html">Menu</a></li>
+          <li><a href="pages/deals.html">Flash Deals</a></li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="pages/login.html">My Account</a></li>
+          <li><a href="pages/dashboard.html">Order History</a></li>
+          <li><a href="pages/tracking.html">Track Order</a></li>
+          <li><a href="pages/dashboard.html">Addresses</a></li>
+          <li><a href="pages/contact.html">Help Centre</a></li>
+          <li><a href="admin/login.html" style="opacity:.5">Admin Portal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span>12 Herbert Chitepo St, Mutare, Zimbabwe</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+263 77 123 4567</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>jpxfood@gmail.com</span></div>
+        <div class="footer-contact-item"><i class="fa-solid fa-clock"></i><span>Mon–Sun: 8AM – 10PM</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    <p>&copy; 2025 JPX Food. All rights reserved.</p>
+    <div class="footer-pay">
+      <i class="fa-brands fa-cc-visa"></i>
+      <i class="fa-brands fa-cc-mastercard"></i>
+      <i class="fa-solid fa-mobile-screen-button"></i>
+      <i class="fa-solid fa-money-bill-wave"></i>
+    </div>
+  </div>
+</footer>
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-hd">
+    <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart <span id="cartPanelCount" style="color:var(--muted);font-weight:400;font-size:.85rem"></span></h3>
+    <button class="cart-panel-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-panel-body" id="cartPanelBody"></div>
+  <div class="cart-panel-ft">
+    <div class="cart-sum-row"><span>Subtotal</span><span class="v" id="cartPanelTotal">$0.00</span></div>
+    <div class="cart-sum-row delivery"><span>Delivery</span><span class="v">Free</span></div>
+    <div class="cart-sum-row total"><span>Total</span><span id="cartPanelTotalFinal">$0.00</span></div>
+    <button class="cart-checkout-btn" onclick="window.location='pages/checkout.html'">
+      <i class="fa-solid fa-lock"></i> Proceed to Checkout
+    </button>
+  </div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="assets/js/app.js"></script>
+<script>
+// Render popular products (first 10 with highest badges)
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('popularGrid');
+  if(!grid) return;
+  const popular = [...PRODUCTS].sort((a,b) => b.badge-a.badge).slice(0,10);
+  grid.innerHTML = popular.map(p => productCardHTML(p, 'pages/')).join('');
+  initReveal();
+});
+function subscribeNL(){
+  const v = document.getElementById('nlEmail').value.trim();
+  if(!v || !/\S+@\S+\.\S+/.test(v)){ showToast('<i class="fa-solid fa-xmark"></i> Please enter a valid email.','error'); return; }
+  showToast('<i class="fa-solid fa-check"></i> Subscribed! Check your inbox soon.','success');
+  document.getElementById('nlEmail').value='';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Create Account — JPX Food</title>
+  <link rel="icon" href="../assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+  <style>
+    a,a:hover,a:visited{text-decoration:none!important}
+    .auth-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 66px)}
+    .auth-left{position:relative;display:none;align-items:flex-end;padding:56px;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80') center/cover no-repeat}
+    .auth-left::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,17,1,.2) 0%,rgba(28,17,1,.85) 100%)}
+    .auth-left-content{position:relative;z-index:1;color:#fff}
+    .auth-left-content h2{font-family:var(--font-d);font-size:2.1rem;font-weight:900;margin-bottom:12px;line-height:1.2}
+    .auth-left-content p{opacity:.72;font-size:.9rem;line-height:1.7;max-width:360px}
+    .auth-left-badges{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+    .auth-badge{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:7px 14px;font-size:.76rem;color:rgba(255,255,255,.85)}
+    .auth-badge i{color:var(--primary)}
+    .auth-right{display:flex;align-items:center;justify-content:center;padding:36px 24px;background:var(--bg)}
+    .auth-box{width:100%;max-width:440px}
+    .auth-logo{display:flex;align-items:center;justify-content:center;gap:9px;font-size:1.4rem;font-weight:800;margin-bottom:6px}
+    .auth-logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+    .auth-logo em{color:var(--primary);font-style:normal}
+    .auth-box h1{font-size:1.35rem;font-weight:800;text-align:center;margin-bottom:5px}
+    .auth-sub{text-align:center;color:var(--muted);font-size:.84rem;margin-bottom:22px}
+    .auth-sub a{color:var(--primary);font-weight:700}
+    .auth-form{display:flex;flex-direction:column;gap:13px}
+    .reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group label{font-weight:600;font-size:.82rem}
+    .auth-input{width:100%;padding:11px 13px;border-radius:11px;border:1.5px solid var(--gray2);background:var(--white);font-family:var(--font);font-size:.86rem;outline:none;transition:border-color .25s;-webkit-appearance:none}
+    .auth-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,71,10,.09)}
+    .auth-input.err{border-color:#D13030}
+    .field-err{font-size:.72rem;color:#D13030;display:none}
+    .field-err.show{display:block}
+    .pw-strength-bar{height:4px;background:var(--gray);border-radius:100px;overflow:hidden;margin-top:5px}
+    .pw-strength-fill{height:100%;width:0;border-radius:100px;transition:width .3s,background .3s}
+    .pw-strength-label{font-size:.7rem;color:var(--muted);margin-top:3px}
+    .terms-row{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:var(--muted)}
+    .terms-row input{margin-top:3px;accent-color:var(--primary);flex-shrink:0}
+    .terms-row a{color:var(--primary);font-weight:600}
+    .auth-alert{background:rgba(209,48,48,.07);border:1px solid rgba(209,48,48,.22);border-radius:10px;padding:10px 14px;display:none;align-items:center;gap:9px;color:#9b1c1c;font-size:.8rem;margin-bottom:6px}
+    .auth-alert.show{display:flex}
+    .auth-submit{padding:13px;border-radius:12px;background:var(--dark);color:#fff;border:none;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .25s;font-family:var(--font)}
+    .auth-submit:hover{background:var(--primary)}
+    .auth-submit:disabled{opacity:.6;cursor:not-allowed}
+    @media(min-width:900px){.auth-left{display:flex}}
+    @media(max-width:480px){.reg-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span><span>JPX<em>Food</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="menu.html" class="nav-link">Our Menu</a></li>
+      <li><a href="deals.html" class="nav-link deals">Deals</a></li>
+    </ul>
+    <div class="nav-search"><i class="fa-solid fa-magnifying-glass nav-search-icon"></i><input type="text" placeholder="Search food or drinks…" id="navSearch" autocomplete="off"/></div>
+    <div class="nav-actions">
+      <button class="nav-cart-btn" id="cartBtn" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount" style="opacity:0;transform:scale(0)">0</span></button>
+      <!-- Sign In (shown when logged out) -->
+      <a href="login.html" class="nav-signin" id="navSignin"><i class="fa-regular fa-user"></i> Sign In</a>
+      <!-- Profile avatar (shown when logged in) -->
+      <div class="nav-profile" id="navProfile" style="display:none">
+        <div class="nav-avatar" id="navProfileInit">U</div>
+        <span class="nav-profile-name" id="navProfileName">Account</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:.65rem;color:var(--muted)"></i>
+        <div class="nav-profile-dropdown" id="navProfileDropdown">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge"></i> My Account</a>
+          <a href="tracking.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+          <a href="dashboard.html"><i class="fa-solid fa-receipt"></i> Order History</a>
+          <div class="nav-profile-divider"></div>
+          <button onclick="navLogout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-header"><a href="../index.html" class="nav-logo" style="color:var(--dark)"><span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span><span>JPX<em>Food</em></span></a><button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <nav class="drawer-nav">
+    <a href="../index.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-house"></i></span><span>Home</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+    <a href="menu.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-bowl-food"></i></span><span>Our Menu</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+    <a href="deals.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-tag"></i></span><span>Deals</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+  </nav>
+  <div class="drawer-footer"><a href="login.html" class="drawer-btn-outline"><i class="fa-regular fa-user"></i> Sign In</a><a href="menu.html" class="drawer-btn-solid"><i class="fa-solid fa-bowl-food"></i> Order Now</a></div>
+</div>
+
+<div class="auth-layout">
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <h2>Join the JPX Food family</h2>
+      <p>Create your free account today to save addresses, track all your orders in real time, and reorder your favourite meals with a single tap.</p>
+      <div class="auth-left-badges">
+        <span class="auth-badge"><i class="fa-solid fa-gift"></i> Free to join</span>
+        <span class="auth-badge"><i class="fa-solid fa-location-dot"></i> Live tracking</span>
+        <span class="auth-badge"><i class="fa-solid fa-heart"></i> Save favourites</span>
+      </div>
+    </div>
+  </div>
+  <div class="auth-right">
+    <div class="auth-box">
+      <a href="../index.html" class="auth-logo">
+        <span class="auth-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+        <span>JPX<em>Food</em></span>
+      </a>
+      <h1>Create your account</h1>
+      <p class="auth-sub">Already have an account? <a href="login.html">Sign in</a></p>
+
+      <div class="auth-alert" id="regAlert"><i class="fa-solid fa-circle-xmark"></i><span id="regAlertMsg">Error</span></div>
+
+      <form class="auth-form" id="registerForm" novalidate>
+        <div class="reg-grid">
+          <div class="form-group"><label>First Name *</label><input class="auth-input" id="rFirst" placeholder="Tatenda"/><span class="field-err" id="eFirst">Required.</span></div>
+          <div class="form-group"><label>Last Name *</label><input class="auth-input" id="rLast" placeholder="Moyo"/><span class="field-err" id="eLast">Required.</span></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" class="auth-input" id="rEmail" placeholder="tatenda@example.com"/><span class="field-err" id="eEmail">Valid email required.</span></div>
+        <div class="form-group"><label>Phone Number *</label><input type="tel" class="auth-input" id="rPhone" placeholder="+263 77 123 4567"/><span class="field-err" id="ePhone">Valid phone required.</span></div>
+        <div class="form-group">
+          <label>Password *</label>
+          <input type="password" class="auth-input" id="rPw" placeholder="At least 8 characters"/>
+          <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwFill"></div></div>
+          <span class="pw-strength-label" id="pwLabel">Enter a password</span>
+          <span class="field-err" id="ePw">Minimum 8 characters required.</span>
+        </div>
+        <div class="form-group"><label>Confirm Password *</label><input type="password" class="auth-input" id="rConfirm" placeholder="Re-enter your password"/><span class="field-err" id="eConfirm">Passwords do not match.</span></div>
+        <label class="terms-row"><input type="checkbox" id="rTerms"/> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+        <button type="submit" class="auth-submit" id="regBtn"><i class="fa-solid fa-user-plus"></i> Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-hd"><h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3><button class="cart-panel-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="cart-panel-body" id="cartPanelBody"></div>
+  <div class="cart-panel-ft"><div class="cart-sum-row"><span>Subtotal</span><span class="v" id="cartPanelTotal">$0.00</span></div><div class="cart-sum-row delivery"><span>Delivery</span><span class="v">Free</span></div><div class="cart-sum-row total"><span>Total</span><span id="cartPanelTotalFinal">$0.00</span></div><button class="cart-checkout-btn" onclick="window.location='checkout.html'"><i class="fa-solid fa-lock"></i> Checkout</button></div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../assets/js/app.js"></script>
+<script>
+  const PW_LABELS = ['','Very Weak','Weak','Fair','Strong'];
+  const PW_COLORS = ['','#D13030','#F5A623','#F5A623','#2E7D52'];
+  document.getElementById('rPw').addEventListener('input', function(){
+    const v = this.value; let s = 0;
+    if(v.length >= 8) s++; if(/[A-Z]/.test(v)) s++; if(/[0-9]/.test(v)) s++; if(/[^A-Za-z0-9]/.test(v)) s++;
+    const fill = document.getElementById('pwFill');
+    fill.style.width = (s*25)+'%'; fill.style.background = PW_COLORS[s]||'#D13030';
+    document.getElementById('pwLabel').textContent = v ? (PW_LABELS[s]||'Very Weak') : 'Enter a password';
+    document.getElementById('pwLabel').style.color = PW_COLORS[s]||'var(--muted)';
+  });
+
+  function setErr(id,errId,msg){ document.getElementById(id).classList.add('err'); if(msg) document.getElementById(errId).textContent=msg; document.getElementById(errId).classList.add('show'); }
+  function clearErr(id,errId){ document.getElementById(id).classList.remove('err'); document.getElementById(errId).classList.remove('show'); }
+
+  document.getElementById('registerForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const first   = document.getElementById('rFirst').value.trim();
+    const last    = document.getElementById('rLast').value.trim();
+    const email   = document.getElementById('rEmail').value.trim().toLowerCase();
+    const phone   = document.getElementById('rPhone').value.trim();
+    const pw      = document.getElementById('rPw').value;
+    const confirm = document.getElementById('rConfirm').value;
+    const alertEl = document.getElementById('regAlert');
+    alertEl.classList.remove('show');
+    let valid = true;
+    if(!first){ setErr('rFirst','eFirst','First name required.'); valid=false; } else clearErr('rFirst','eFirst');
+    if(!last){  setErr('rLast','eLast','Last name required.');   valid=false; } else clearErr('rLast','eLast');
+    if(!/\S+@\S+\.\S+/.test(email)){ setErr('rEmail','eEmail','Valid email required.'); valid=false; } else clearErr('rEmail','eEmail');
+    if(!/^[\d\s+\-()]{7,}$/.test(phone)){ setErr('rPhone','ePhone','Valid phone required.'); valid=false; } else clearErr('rPhone','ePhone');
+    if(pw.length < 8){ setErr('rPw','ePw','Minimum 8 characters required.'); valid=false; } else clearErr('rPw','ePw');
+    if(pw !== confirm || !confirm){ setErr('rConfirm','eConfirm','Passwords do not match.'); valid=false; } else clearErr('rConfirm','eConfirm');
+    if(!document.getElementById('rTerms').checked){ document.getElementById('regAlertMsg').textContent='Please accept the Terms of Service.'; alertEl.classList.add('show'); valid=false; }
+    if(!valid) return;
+
+    const btn = document.getElementById('regBtn');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating account…'; btn.disabled = true;
+    await new Promise(r => setTimeout(r, 1200));
+
+    const accounts = JSON.parse(localStorage.getItem('jpx2_accounts')||'[]');
+    if(accounts.find(a => a.email.toLowerCase() === email)){
+      setErr('rEmail','eEmail','An account with this email already exists.');
+      btn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Create Account'; btn.disabled = false; return;
+    }
+    accounts.push({email, password:pw, name:first+' '+last, phone});
+    localStorage.setItem('jpx2_accounts', JSON.stringify(accounts));
+    localStorage.setItem('jpx2_session', JSON.stringify({email, name:first+' '+last, loggedIn:true}));
+    showToast('<i class="fa-solid fa-check"></i> Account created! Welcome to JPX Food.','success');
+    setTimeout(() => window.location.href = 'dashboard.html', 900);
+  });
+</script>
+</body>
+</html>

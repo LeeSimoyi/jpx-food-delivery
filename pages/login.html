@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sign In — JPX Food</title>
+  <link rel="icon" href="../assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+  <style>
+    a,a:hover,a:visited{text-decoration:none!important}
+    .auth-layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 66px)}
+    .auth-left{position:relative;display:none;align-items:flex-end;padding:56px;background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80') center/cover no-repeat}
+    .auth-left::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,17,1,.2) 0%,rgba(28,17,1,.85) 100%)}
+    .auth-left-content{position:relative;z-index:1;color:#fff}
+    .auth-left-content h2{font-family:var(--font-d);font-size:2.1rem;font-weight:900;margin-bottom:12px;line-height:1.2}
+    .auth-left-content p{opacity:.72;font-size:.9rem;line-height:1.7;max-width:360px}
+    .auth-left-badges{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+    .auth-badge{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:7px 14px;font-size:.76rem;color:rgba(255,255,255,.85)}
+    .auth-badge i{color:var(--primary)}
+    .auth-right{display:flex;align-items:center;justify-content:center;padding:40px 24px;background:var(--bg)}
+    .auth-box{width:100%;max-width:400px}
+    .auth-logo{display:flex;align-items:center;justify-content:center;gap:9px;font-size:1.4rem;font-weight:800;margin-bottom:6px}
+    .auth-logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+    .auth-logo em{color:var(--primary);font-style:normal}
+    .auth-box h1{font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:5px}
+    .auth-sub{text-align:center;color:var(--muted);font-size:.85rem;margin-bottom:22px}
+    .auth-sub a{color:var(--primary);font-weight:700}
+    .demo-box{background:var(--white);border:1.5px solid var(--gray);border-radius:13px;padding:13px 16px;margin-bottom:20px}
+    .demo-box-title{font-size:.78rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+    .demo-box-title i{color:var(--primary)}
+    .demo-row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;font-size:.76rem;color:var(--muted)}
+    .demo-row:last-child{margin-bottom:0}
+    .demo-use-btn{background:var(--primary);color:#fff;border:none;padding:3px 11px;border-radius:100px;font-size:.7rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:var(--font)}
+    .auth-form{display:flex;flex-direction:column;gap:15px}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group label{font-weight:600;font-size:.83rem}
+    .input-wrap{position:relative}
+    .input-wrap i.i-left{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.82rem;pointer-events:none}
+    .auth-input{width:100%;padding:11px 13px 11px 40px;border-radius:11px;border:1.5px solid var(--gray2);background:var(--white);font-family:var(--font);font-size:.87rem;outline:none;transition:border-color .25s;-webkit-appearance:none}
+    .auth-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(232,71,10,.09)}
+    .auth-input.err{border-color:#D13030}
+    .pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:.82rem;padding:4px}
+    .field-err{font-size:.73rem;color:#D13030;display:none}
+    .field-err.show{display:block}
+    .auth-alert{background:rgba(209,48,48,.07);border:1px solid rgba(209,48,48,.22);border-radius:10px;padding:10px 14px;display:none;align-items:center;gap:9px;color:#9b1c1c;font-size:.8rem}
+    .auth-alert.show{display:flex}
+    .auth-ok{background:rgba(46,125,82,.07);border:1px solid rgba(46,125,82,.22);border-radius:10px;padding:10px 14px;display:none;align-items:center;gap:9px;color:#1f5e3d;font-size:.8rem}
+    .auth-ok.show{display:flex}
+    .row-space{display:flex;justify-content:space-between;align-items:center;font-size:.81rem}
+    .row-space label{display:flex;align-items:center;gap:7px;color:var(--muted);cursor:pointer}
+    .row-space input[type=checkbox]{accent-color:var(--primary)}
+    .row-space a{color:var(--primary);font-weight:600}
+    .auth-submit{padding:13px;border-radius:12px;background:var(--dark);color:#fff;border:none;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .25s;font-family:var(--font)}
+    .auth-submit:hover{background:var(--primary)}
+    .auth-submit:disabled{opacity:.6;cursor:not-allowed}
+    @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+    @media(min-width:900px){.auth-left{display:flex}}
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span><span>JPX<em>Food</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="menu.html" class="nav-link">Our Menu</a></li>
+      <li><a href="deals.html" class="nav-link deals">Deals</a></li>
+    </ul>
+    <div class="nav-search"><i class="fa-solid fa-magnifying-glass nav-search-icon"></i><input type="text" placeholder="Search food or drinks…" id="navSearch" autocomplete="off"/></div>
+    <div class="nav-actions">
+      <button class="nav-cart-btn" id="cartBtn" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count" id="cartCount" style="opacity:0;transform:scale(0)">0</span></button>
+      <!-- Sign In (shown when logged out) -->
+      <a href="login.html" class="nav-signin" id="navSignin"><i class="fa-regular fa-user"></i> Sign In</a>
+      <!-- Profile avatar (shown when logged in) -->
+      <div class="nav-profile" id="navProfile" style="display:none">
+        <div class="nav-avatar" id="navProfileInit">U</div>
+        <span class="nav-profile-name" id="navProfileName">Account</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:.65rem;color:var(--muted)"></i>
+        <div class="nav-profile-dropdown" id="navProfileDropdown">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge"></i> My Account</a>
+          <a href="tracking.html"><i class="fa-solid fa-location-dot"></i> Track Order</a>
+          <a href="dashboard.html"><i class="fa-solid fa-receipt"></i> Order History</a>
+          <div class="nav-profile-divider"></div>
+          <button onclick="navLogout()"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-header"><a href="../index.html" class="nav-logo" style="color:var(--dark)"><span class="nav-logo-icon"><i class="fa-solid fa-fire-burner"></i></span><span>JPX<em>Food</em></span></a><button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <nav class="drawer-nav">
+    <a href="../index.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-house"></i></span><span>Home</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+    <a href="menu.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-bowl-food"></i></span><span>Our Menu</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+    <a href="deals.html" class="drawer-link"><span class="drawer-link-icon"><i class="fa-solid fa-tag"></i></span><span>Deals</span><i class="fa-solid fa-chevron-right drawer-arrow"></i></a>
+  </nav>
+  <div class="drawer-footer"><a href="register.html" class="drawer-btn-outline"><i class="fa-regular fa-user"></i> Register</a><a href="menu.html" class="drawer-btn-solid"><i class="fa-solid fa-bowl-food"></i> Order Now</a></div>
+</div>
+
+<div class="auth-layout">
+  <!-- LEFT PANEL -->
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <h2>Welcome back to JPX Food</h2>
+      <p>Fresh, delicious meals delivered straight to your door anywhere in Mutare. Sign in to track orders and reorder your favourites.</p>
+      <div class="auth-left-badges">
+        <span class="auth-badge"><i class="fa-solid fa-truck-fast"></i> Fast Delivery</span>
+        <span class="auth-badge"><i class="fa-solid fa-star"></i> 4.9 Rating</span>
+        <span class="auth-badge"><i class="fa-solid fa-shield-halved"></i> Secure Payments</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-right">
+    <div class="auth-box">
+      <a href="../index.html" class="auth-logo">
+        <span class="auth-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+        <span>JPX<em>Food</em></span>
+      </a>
+      <h1>Sign in to your account</h1>
+      <p class="auth-sub">New here? <a href="register.html">Create a free account</a></p>
+
+      <div class="demo-box">
+        <div class="demo-box-title"><i class="fa-solid fa-circle-info"></i> Demo Accounts (click to fill)</div>
+        <div class="demo-row"><span>tatenda@jpxfood.com · Pass@1234</span><button class="demo-use-btn" onclick="fillDemo('tatenda@jpxfood.com','Pass@1234')">Use</button></div>
+        <div class="demo-row"><span>chipo@jpxfood.com · Pass@1234</span><button class="demo-use-btn" onclick="fillDemo('chipo@jpxfood.com','Pass@1234')">Use</button></div>
+      </div>
+
+      <div class="auth-alert" id="loginAlert"><i class="fa-solid fa-circle-xmark"></i><span id="alertMsg">Invalid credentials.</span></div>
+      <div class="auth-ok" id="loginOk"><i class="fa-solid fa-circle-check"></i><span>Login successful! Redirecting…</span></div>
+
+      <form class="auth-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label>Email Address</label>
+          <div class="input-wrap"><i class="fa-solid fa-envelope i-left"></i><input type="email" class="auth-input" id="lEmail" placeholder="you@example.com" autocomplete="email"/></div>
+          <span class="field-err" id="eEmail">Please enter a valid email.</span>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <i class="fa-solid fa-lock i-left"></i>
+            <input type="password" class="auth-input" id="lPw" placeholder="••••••••" autocomplete="current-password"/>
+            <button type="button" class="pw-toggle" id="pwToggle"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <span class="field-err" id="ePw">Password is required.</span>
+        </div>
+        <div class="row-space">
+          <label><input type="checkbox" id="remember"/> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="auth-submit" id="loginBtn"><i class="fa-solid fa-right-to-bracket"></i> Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel-hd"><h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3><button class="cart-panel-close" id="cartClose"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="cart-panel-body" id="cartPanelBody"></div>
+  <div class="cart-panel-ft"><div class="cart-sum-row"><span>Subtotal</span><span class="v" id="cartPanelTotal">$0.00</span></div><div class="cart-sum-row delivery"><span>Delivery</span><span class="v">Free</span></div><div class="cart-sum-row total"><span>Total</span><span id="cartPanelTotalFinal">$0.00</span></div><button class="cart-checkout-btn" onclick="window.location='checkout.html'"><i class="fa-solid fa-lock"></i> Checkout</button></div>
+</div>
+<div class="toast-wrap" id="toastWrap"></div>
+<script src="../assets/js/app.js"></script>
+<script>
+  const SEED_ACCOUNTS = [
+    {email:'tatenda@jpxfood.com', password:'Pass@1234', name:'Tatenda Moyo'},
+    {email:'chipo@jpxfood.com',   password:'Pass@1234', name:'Chipo Nhamo'},
+  ];
+  function getAccounts(){ return [...SEED_ACCOUNTS, ...JSON.parse(localStorage.getItem('jpx2_accounts')||'[]')]; }
+  function fillDemo(e,p){ document.getElementById('lEmail').value=e; document.getElementById('lPw').value=p; }
+
+  document.getElementById('pwToggle').addEventListener('click', function(){
+    const inp = document.getElementById('lPw');
+    const show = inp.type === 'text';
+    inp.type = show ? 'password' : 'text';
+    this.innerHTML = show ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+  });
+
+  function setErr(id, errId, msg){ document.getElementById(id).classList.add('err'); if(msg) document.getElementById(errId).textContent=msg; document.getElementById(errId).classList.add('show'); }
+  function clearErr(id, errId){ document.getElementById(id).classList.remove('err'); document.getElementById(errId).classList.remove('show'); }
+
+  document.getElementById('loginForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const email = document.getElementById('lEmail').value.trim().toLowerCase();
+    const pw    = document.getElementById('lPw').value;
+    const alertEl = document.getElementById('loginAlert');
+    const okEl    = document.getElementById('loginOk');
+    alertEl.classList.remove('show'); okEl.classList.remove('show');
+
+    let valid = true;
+    if(!email || !/\S+@\S+\.\S+/.test(email)){ setErr('lEmail','eEmail','Please enter a valid email.'); valid=false; } else clearErr('lEmail','eEmail');
+    if(!pw){ setErr('lPw','ePw','Password is required.'); valid=false; } else clearErr('lPw','ePw');
+    if(!valid) return;
+
+    const btn = document.getElementById('loginBtn');
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Verifying…'; btn.disabled = true;
+    await new Promise(r => setTimeout(r, 900));
+
+    const match = getAccounts().find(a => a.email.toLowerCase() === email && a.password === pw);
+    btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Sign In'; btn.disabled = false;
+
+    if(!match){
+      document.getElementById('alertMsg').textContent = 'No account found with these credentials.';
+      alertEl.classList.add('show');
+      document.querySelector('.auth-box').style.animation = 'shake .4s ease';
+      setTimeout(() => document.querySelector('.auth-box').style.animation = '', 400);
+      return;
+    }
+    localStorage.setItem('jpx2_session', JSON.stringify({email: match.email, name: match.name, loggedIn: true}));
+    if(document.getElementById('remember').checked) localStorage.setItem('jpx2_remember', match.email);
+    okEl.classList.add('show');
+    setTimeout(() => window.location.href = 'dashboard.html', 700);
+  });
+
+  const rem = localStorage.getItem('jpx2_remember');
+  if(rem) document.getElementById('lEmail').value = rem;
+</script>
+</body>
+</html>

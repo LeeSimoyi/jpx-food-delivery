@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Admin Login — JPX Food</title>
+  <link rel="icon" href="../assets/icons/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    :root{--primary:#E8470A;--primary2:#F05A1A;--dark:#1C1101;--dark2:#2E1F08;--white:#fff;--muted:#7A6458;--gray:#EDE8E4;--gray2:#D9D2CC;--bg:#FAF7F4;--text:#1A1208;--font:'Inter',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font);min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--dark),var(--dark2));padding:20px}
+    a,a:hover,a:visited{text-decoration:none!important;color:inherit}
+    .admin-login-box{width:100%;max-width:400px;background:var(--white);border-radius:20px;padding:40px 34px;box-shadow:0 24px 64px rgba(0,0,0,.3)}
+    .admin-login-logo{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:8px}
+    .admin-login-logo-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+    .admin-login-logo span{font-size:1.4rem;font-weight:800}
+    .admin-login-logo em{color:var(--primary);font-style:normal}
+    .admin-tag{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);background:rgba(232,71,10,.08);padding:5px 14px;border-radius:100px;display:block;width:fit-content;margin:0 auto 24px}
+    .admin-login-box h1{font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:24px}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+    .form-group label{font-weight:600;font-size:.84rem}
+    .admin-input{width:100%;padding:12px 14px;border-radius:11px;border:1.5px solid var(--gray2);font-family:var(--font);font-size:.88rem;outline:none;transition:border-color .25s;-webkit-appearance:none}
+    .admin-input:focus{border-color:var(--primary)}
+    .admin-login-btn{width:100%;padding:13px;border-radius:12px;background:var(--dark);color:#fff;border:none;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .25s;margin-top:6px}
+    .admin-login-btn:hover{background:var(--primary)}
+    .admin-demo-note{background:var(--bg);border-radius:10px;padding:11px 14px;font-size:.76rem;color:var(--muted);text-align:center;margin-top:18px}
+    .admin-demo-note strong{color:var(--text)}
+    .back-to-site{display:block;text-align:center;margin-top:18px;font-size:.82rem;color:var(--muted)}
+    .back-to-site:hover{color:var(--primary)}
+    .login-alert{background:rgba(209,48,48,.08);border:1px solid rgba(209,48,48,.25);border-radius:10px;padding:10px 14px;display:none;align-items:center;gap:8px;color:#9b1c1c;font-size:.8rem;margin-bottom:14px}
+    .login-alert.show{display:flex}
+  </style>
+</head>
+<body>
+  <div class="admin-login-box">
+    <div class="admin-login-logo">
+      <span class="admin-login-logo-icon"><i class="fa-solid fa-fire-burner"></i></span>
+      <span>JPX<em>Food</em></span>
+    </div>
+    <span class="admin-tag"><i class="fa-solid fa-shield-halved"></i> Admin Panel</span>
+    <h1>Sign in to Admin Dashboard</h1>
+    <div class="login-alert" id="loginAlert"><i class="fa-solid fa-circle-xmark"></i><span>Invalid admin credentials.</span></div>
+    <form id="adminLoginForm">
+      <div class="form-group"><label>Admin Email</label><input type="email" class="admin-input" id="aEmail" value="jpxfood@gmail.com"/></div>
+      <div class="form-group"><label>Password</label><input type="password" class="admin-input" id="aPw" placeholder="Enter admin password"/></div>
+      <button type="submit" class="admin-login-btn"><i class="fa-solid fa-right-to-bracket"></i> Sign In to Dashboard</button>
+    </form>
+    <div class="admin-demo-note">Demo credentials: <strong>jpxfood@gmail.com</strong> / <strong>Admin@123</strong></div>
+    <a href="../index.html" class="back-to-site"><i class="fa-solid fa-arrow-left"></i> Back to JPX Food website</a>
+  </div>
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', async e=>{
+      e.preventDefault();
+      const email=document.getElementById('aEmail').value.trim().toLowerCase();
+      const pw=document.getElementById('aPw').value;
+      const alertEl=document.getElementById('loginAlert');
+      alertEl.classList.remove('show');
+      if(email==='jpxfood@gmail.com' && pw==='Admin@123'){
+        localStorage.setItem('jpx2_admin_session', JSON.stringify({email,loggedIn:true,name:'JPX Admin'}));
+        window.location.href='dashboard.html';
+      } else {
+        alertEl.classList.add('show');
+        const box=document.querySelector('.admin-login-box');
+        box.style.animation='shake .4s ease';
+        setTimeout(()=>box.style.animation='',400);
+      }
+    });
+  </script>
+  <style>@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}</style>
+</body>
+</html>
