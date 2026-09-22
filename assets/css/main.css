@@ -37,7 +37,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{
    scroll-behavior:smooth;
-   -webkit-text-size-adjust:100%
+   -webkit-text-size-adjust:100%;
 }
 body{
    font-family:var(--font);
@@ -47,9 +47,15 @@ body{
    overflow-x:hidden;
    font-size:15px
 }
-a{text-decoration:none!important;color:inherit}
+a{
+   text-decoration:none!important;
+   color:inherit;
+}
 a:hover,a:focus,a:visited{text-decoration:none!important}
-img{max-width:100%;display:block}
+img{
+   max-width:100%;
+   display:block;
+}
 ul{list-style:none}
 button{font-family:var(--font);cursor:pointer}
 input,select,textarea{font-family:var(--font)}
