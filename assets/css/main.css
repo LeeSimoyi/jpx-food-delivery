@@ -35,8 +35,18 @@
   --font:'Inter',system-ui,sans-serif;--font-d:'Playfair Display',Georgia,serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden;font-size:15px}
+html{
+   scroll-behavior:smooth;
+   -webkit-text-size-adjust:100%
+}
+body{
+   font-family:var(--font);
+   color:var(--text);
+   background:var(--bg);
+   line-height:1.6;
+   overflow-x:hidden;
+   font-size:15px
+}
 a{text-decoration:none!important;color:inherit}
 a:hover,a:focus,a:visited{text-decoration:none!important}
 img{max-width:100%;display:block}
