@@ -82,7 +82,19 @@ input,select,textarea{font-family:var(--font)}
 }
 .announce-bar strong{color:var(--accent)}
 /* NAVBAR */
-.navbar{position:fixed;top:0;left:0;right:0;width:100%;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);border-bottom:1.5px solid var(--gray);box-shadow:0 1px 8px rgba(28,17,1,.06)}
+.navbar{
+   position:fixed;
+   top:0;
+   left:0;
+   right:0;
+   width:100%;
+   z-index:999;
+   background:rgba(255,255,255,.97);
+   backdrop-filter:saturate(180%) blur(10px);
+   -webkit-backdrop-filter:saturate(180%) blur(10px);
+   border-bottom:1.5px solid var(--gray);
+   box-shadow:0 1px 8px rgba(28,17,1,.06);
+}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 var(--g);height:66px;display:flex;align-items:center;gap:16px}
 .nav-logo{display:flex;align-items:center;gap:9px;font-size:1.3rem;font-weight:800;color:var(--dark);flex-shrink:0;white-space:nowrap}
 .nav-logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.9rem}
