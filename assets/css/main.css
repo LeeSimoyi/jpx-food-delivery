@@ -95,9 +95,36 @@ input,select,textarea{font-family:var(--font)}
    border-bottom:1.5px solid var(--gray);
    box-shadow:0 1px 8px rgba(28,17,1,.06);
 }
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 var(--g);height:66px;display:flex;align-items:center;gap:16px}
-.nav-logo{display:flex;align-items:center;gap:9px;font-size:1.3rem;font-weight:800;color:var(--dark);flex-shrink:0;white-space:nowrap}
-.nav-logo-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:.9rem}
+.nav-inner{
+   max-width:1280px;
+   margin:0 auto;
+   padding:0 var(--g);
+   height:66px;
+   display:flex;
+   align-items:center;
+   gap:16px;
+}
+.nav-logo{
+   display:flex;
+   align-items:center;
+   gap:9px;
+   font-size:1.3rem;
+   font-weight:800;
+   color:var(--dark);
+   flex-shrink:0;
+   white-space:nowrap;
+}
+.nav-logo-icon{
+   width:34px;
+   height:34px;
+   border-radius:9px;
+   background:linear-gradient(135deg,var(--primary),var(--primary2));
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   color:var(--white);
+   font-size:.9rem;
+}
 .nav-logo em{color:var(--primary);font-style:normal}
 .nav-links{display:flex;align-items:center;gap:2px;margin:0 8px}
 .nav-link{padding:7px 13px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text2);transition:color var(--tr),background var(--tr)}
