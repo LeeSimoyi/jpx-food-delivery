@@ -125,8 +125,16 @@ input,select,textarea{font-family:var(--font)}
    color:var(--white);
    font-size:.9rem;
 }
-.nav-logo em{color:var(--primary);font-style:normal}
-.nav-links{display:flex;align-items:center;gap:2px;margin:0 8px}
+.nav-logo em{
+   color:var(--primary);
+   font-style:normal;
+}
+.nav-links{
+   display:flex;
+   align-items:center;
+   gap:2px;
+   margin:0 8px;
+}
 .nav-link{padding:7px 13px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text2);transition:color var(--tr),background var(--tr)}
 .nav-link:hover{color:var(--primary);background:var(--primary-lt)}
 .nav-link.deals{color:var(--primary)!important;font-weight:700}
