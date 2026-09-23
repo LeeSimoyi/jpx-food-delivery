@@ -135,8 +135,18 @@ input,select,textarea{font-family:var(--font)}
    gap:2px;
    margin:0 8px;
 }
-.nav-link{padding:7px 13px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text2);transition:color var(--tr),background var(--tr)}
-.nav-link:hover{color:var(--primary);background:var(--primary-lt)}
+.nav-link{
+   padding:7px 13px;
+   border-radius:8px;
+   font-size:.875rem;
+   font-weight:500;
+   color:var(--text2);
+   transition:color var(--tr),background var(--tr);
+}
+.nav-link:hover{
+   color:var(--primary);
+   background:var(--primary-lt);
+}
 .nav-link.deals{color:var(--primary)!important;font-weight:700}
 .nav-link.active{color:var(--primary);font-weight:600}
 .nav-search{flex:1;max-width:460px;position:relative}
