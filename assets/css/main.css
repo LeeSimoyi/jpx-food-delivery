@@ -267,7 +267,15 @@ input,select,textarea{font-family:var(--font)}
    background:var(--primary);
    border-color:var(--primary);
 }
-.ham-line{display:block;width:17px;height:2px;border-radius:2px;background:var(--text);transition:background .3s,width .3s;transform:none!important}
+.ham-line{
+   display:block;
+   width:17px;
+   height:2px;
+   border-radius:2px;
+   background:var(--text);
+   transition:background .3s,width .3s;
+   transform:none!important;
+}
 .hamburger.active .ham-line{background:var(--white)}
 .ham-line:nth-child(2){width:12px}
 .hamburger:hover .ham-line:nth-child(2),.hamburger.active .ham-line:nth-child(2){width:17px}
