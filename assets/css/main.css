@@ -245,7 +245,20 @@ input,select,textarea{font-family:var(--font)}
    white-space:nowrap;
 }
 .nav-signin:hover{background:var(--dark2)}
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gray);background:none;cursor:pointer;transition:all var(--tr)}
+.hamburger{
+   display:none;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+   gap:5px;
+   width:40px;
+   height:40px;
+   border-radius:50%;
+   border:1.5px solid var(--gray);
+   background:none;
+   cursor:pointer;
+   transition:all var(--tr);
+}
 .hamburger:hover{border-color:var(--primary);background:var(--primary-lt)}
 .hamburger.active{background:var(--primary);border-color:var(--primary)}
 .ham-line{display:block;width:17px;height:2px;border-radius:2px;background:var(--text);transition:background .3s,width .3s;transform:none!important}
