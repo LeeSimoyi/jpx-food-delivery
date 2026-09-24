@@ -259,8 +259,14 @@ input,select,textarea{font-family:var(--font)}
    cursor:pointer;
    transition:all var(--tr);
 }
-.hamburger:hover{border-color:var(--primary);background:var(--primary-lt)}
-.hamburger.active{background:var(--primary);border-color:var(--primary)}
+.hamburger:hover{
+   border-color:var(--primary);
+   background:var(--primary-lt);
+}
+.hamburger.active{
+   background:var(--primary);
+   border-color:var(--primary);
+}
 .ham-line{display:block;width:17px;height:2px;border-radius:2px;background:var(--text);transition:background .3s,width .3s;transform:none!important}
 .hamburger.active .ham-line{background:var(--white)}
 .ham-line:nth-child(2){width:12px}
