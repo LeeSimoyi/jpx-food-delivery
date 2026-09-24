@@ -533,11 +533,17 @@ input,select,textarea{font-family:var(--font)}
   z-index:1500; 
   display:none;
 }
-.search-dropdown.open{ display:block; animation: searchDropIn .22s ease; }
+.search-dropdown.open{ 
+   display:block; 
+   animation: searchDropIn .22s ease; 
+}
 @keyframes searchDropIn{ from{opacity:0; transform:translateY(-6px);} to{opacity:1; transform:translateY(0);} }
 .search-result-item{
-  display:flex; align-items:center; gap:12px;
-  padding:10px 14px; cursor:pointer;
+  display:flex; 
+  align-items:center;
+  gap:12px;
+  padding:10px 14px;
+  cursor:pointer;
   transition: background .15s;
 }
 .search-result-item:hover{ background: var(--primary-lt); }
