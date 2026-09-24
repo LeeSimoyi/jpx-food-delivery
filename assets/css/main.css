@@ -228,8 +228,22 @@ input,select,textarea{font-family:var(--font)}
    border:2px solid var(--white);
    transition:transform .25s cubic-bezier(.34,1.56,.64,1);
 }
-.cart-count.bump{transform:scale(1.5)}
-.nav-signin{background:var(--dark);color:var(--white);padding:9px 18px;border-radius:100px;font-size:.855rem;font-weight:600;display:flex;align-items:center;gap:7px;transition:background var(--tr);white-space:nowrap}
+.cart-count.bump{
+   transform:scale(1.5);
+}
+.nav-signin{
+   background:var(--dark);
+   color:var(--white);
+   padding:9px 18px;
+   border-radius:100px;
+   font-size:.855rem;
+   font-weight:600;
+   display:flex;
+   align-items:center;
+   gap:7px;
+   transition:background var(--tr);
+   white-space:nowrap;
+}
 .nav-signin:hover{background:var(--dark2)}
 .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gray);background:none;cursor:pointer;transition:all var(--tr)}
 .hamburger:hover{border-color:var(--primary);background:var(--primary-lt)}
