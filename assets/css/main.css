@@ -654,11 +654,24 @@ input,select,textarea{font-family:var(--font)}
   color:#fff; 
   font-size:.9rem;
 }
-.admin-sidebar-brand span{ color:#fff; font-weight:800; font-size:1.1rem; }
-.admin-sidebar-brand em{ color:var(--primary); font-style:normal; }
+.admin-sidebar-brand span{ 
+   color:#fff; 
+   font-weight:800; 
+   font-size:1.1rem;
+}
+.admin-sidebar-brand em{ 
+   color:var(--primary); 
+   font-style:normal; 
+}
 .admin-badge{
-  margin-left:auto; background:rgba(232,71,10,.2); color:var(--primary);
-  font-size:.62rem; font-weight:800; padding:3px 8px; border-radius:100px; letter-spacing:.04em;
+  margin-left:auto; 
+  background:rgba(232,71,10,.2); 
+  color:var(--primary);
+  font-size:.62rem;
+  font-weight:800;
+  padding:3px 8px; 
+  border-radius:100px; 
+  letter-spacing:.04em;
 }
 .admin-nav{ flex:1; padding:14px 12px; overflow-y:auto; }
 .admin-nav-item{
