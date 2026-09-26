@@ -352,8 +352,23 @@ input,select,textarea{font-family:var(--font)}
    color:var(--text2);
    transition:all var(--tr);
 }
-.drawer-link:hover,.drawer-link.active{background:var(--primary-lt);color:var(--primary)}
-.drawer-link-icon{width:36px;height:36px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:.88rem;flex-shrink:0;transition:background .2s}
+.drawer-link:hover,.drawer-link.active{
+   background:var(--primary-lt);
+   color:var(--primary);
+}
+.drawer-link-icon{
+   width:36px;
+   height:36px;
+   border-radius:10px;
+   background:var(--bg);
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   color:var(--primary);
+   font-size:.88rem;
+   flex-shrink:0;
+   transition:background .2s;
+}
 .drawer-link:hover .drawer-link-icon,.drawer-link.active .drawer-link-icon{background:var(--primary);color:var(--white)}
 .drawer-arrow{margin-left:auto;font-size:.68rem;color:var(--gray2)}
 .drawer-footer{padding:16px 14px 28px;border-top:1px solid var(--gray);display:flex;flex-direction:column;gap:9px}
