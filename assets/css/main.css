@@ -329,9 +329,29 @@ input,select,textarea{font-family:var(--font)}
    color:var(--muted);
    transition:all .2s;
 }
-.drawer-close:hover{background:#FEE2E2;border-color:#FCA5A5;color:var(--red)}
-.drawer-nav{flex:1;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
-.drawer-link{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:12px;font-weight:500;font-size:.92rem;color:var(--text2);transition:all var(--tr)}
+.drawer-close:hover{
+   background:#FEE2E2;
+   border-color:#FCA5A5;
+   color:var(--red);
+}
+.drawer-nav{
+   flex:1;
+   padding:12px 14px;
+   display:flex;
+   flex-direction:column;
+   gap:3px;
+}
+.drawer-link{
+   display:flex;
+   align-items:center;
+   gap:12px;
+   padding:13px 14px;
+   border-radius:12px;
+   font-weight:500;
+   font-size:.92rem;
+   color:var(--text2);
+   transition:all var(--tr);
+}
 .drawer-link:hover,.drawer-link.active{background:var(--primary-lt);color:var(--primary)}
 .drawer-link-icon{width:36px;height:36px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:.88rem;flex-shrink:0;transition:background .2s}
 .drawer-link:hover .drawer-link-icon,.drawer-link.active .drawer-link-icon{background:var(--primary);color:var(--white)}
