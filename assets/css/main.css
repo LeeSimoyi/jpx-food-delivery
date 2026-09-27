@@ -432,7 +432,12 @@ input,select,textarea{font-family:var(--font)}
    font-size:.9rem;
 }
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--primary);color:var(--white);padding:12px 28px;box-shadow:0 4px 16px rgba(232,71,10,.35)}
+.btn-primary{
+   background:var(--primary);
+   color:var(--white);
+   padding:12px 28px;
+   box-shadow:0 4px 16px rgba(232,71,10,.35);
+}
 .btn-primary:hover{background:var(--primary-dk);box-shadow:0 8px 24px rgba(232,71,10,.45)}
 .btn-dark{background:var(--dark);color:var(--white);padding:12px 26px}
 .btn-dark:hover{background:var(--dark2)}
