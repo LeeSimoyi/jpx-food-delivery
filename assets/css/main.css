@@ -438,8 +438,15 @@ input,select,textarea{font-family:var(--font)}
    padding:12px 28px;
    box-shadow:0 4px 16px rgba(232,71,10,.35);
 }
-.btn-primary:hover{background:var(--primary-dk);box-shadow:0 8px 24px rgba(232,71,10,.45)}
-.btn-dark{background:var(--dark);color:var(--white);padding:12px 26px}
+.btn-primary:hover{
+   background:var(--primary-dk);
+   box-shadow:0 8px 24px rgba(232,71,10,.45);
+}
+.btn-dark{
+   background:var(--dark);
+   color:var(--white);
+   padding:12px 26px;
+}
 .btn-dark:hover{background:var(--dark2)}
 .btn-outline{background:transparent;color:var(--text);padding:11px 24px;border:2px solid var(--gray2)}
 .btn-outline:hover{border-color:var(--dark);color:var(--dark);background:rgba(28,17,1,.04)}
