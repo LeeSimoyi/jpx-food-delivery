@@ -1243,12 +1243,24 @@ input:focus-visible, select:focus-visible, textarea:focus-visible{
 
 /* ── Back-to-top button ── */
 .back-to-top{
-  position:fixed; bottom:24px; right:24px; z-index:800;
-  width:44px; height:44px; border-radius:50%;
-  background:var(--dark); color:#fff; border:none; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  font-size:.9rem; box-shadow:0 4px 18px rgba(28,17,1,.22);
-  opacity:0; transform:translateY(12px) scale(.9);
+  position:fixed; 
+  bottom:24px; 
+  right:24px; 
+  z-index:800;
+  width:44px; 
+  height:44px; 
+  border-radius:50%;
+  background:var(--dark); 
+  color:#fff; 
+  border:none; 
+  cursor:pointer;
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  font-size:.9rem; 
+  box-shadow:0 4px 18px rgba(28,17,1,.22);
+  opacity:0; 
+  transform:translateY(12px) scale(.9);
   transition:opacity .3s, transform .3s;
   pointer-events:none;
 }
