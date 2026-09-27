@@ -759,14 +759,25 @@ input,select,textarea{font-family:var(--font)}
 .admin-nav-item:hover{ background:rgba(255,255,255,.06); color:#fff; }
 .admin-nav-item.active{ background:var(--primary); color:#fff; font-weight:600; }
 .admin-nav-badge{
-  margin-left:auto; background:rgba(255,255,255,.15); font-size:.68rem;
-  padding:1px 7px; border-radius:100px; font-weight:700;
+  margin-left:auto; 
+  background:rgba(255,255,255,.15);
+  font-size:.68rem;
+  padding:1px 7px; 
+  border-radius:100px; 
+  font-weight:700;
 }
 .admin-nav-item.active .admin-nav-badge{ background:rgba(255,255,255,.25); }
-.admin-sidebar-footer{ padding:14px; border-top:1px solid rgba(255,255,255,.08); }
+.admin-sidebar-footer{ 
+  padding:14px; 
+  border-top:1px solid rgba(255,255,255,.08);
+}
 .admin-user-chip{
-  display:flex; align-items:center; gap:10px; padding:10px;
-  border-radius:12px; background:rgba(255,255,255,.05);
+  display:flex; 
+  align-items:center; 
+  gap:10px;
+  padding:10px;
+  border-radius:12px; 
+  background:rgba(255,255,255,.05);
 }
 .admin-avatar{
   width:34px; 
