@@ -527,9 +527,19 @@ input,select,textarea{font-family:var(--font)}
    text-overflow:ellipsis;
    color:var(--text);
 }
-.product-name:hover{color:var(--primary)}
-.product-rating{display:flex;align-items:center;gap:4px;font-size:.77rem;color:var(--muted);margin-bottom:9px}
-.product-rating i{color:var(--accent);font-size:.7rem}
+.product-name:hover{color:var(--primary);}
+.product-rating{
+   display:flex;
+   align-items:center;
+   gap:4px;
+   font-size:.77rem;
+   color:var(--muted);
+   margin-bottom:9px;
+}
+.product-rating i{
+   color:var(--accent);
+   font-size:.7rem;
+}
 .product-price-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
 .price-wrap{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
 .price-main{font-weight:800;font-size:1rem;color:var(--text)}
