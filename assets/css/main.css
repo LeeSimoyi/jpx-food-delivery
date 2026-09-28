@@ -515,8 +515,18 @@ input,select,textarea{font-family:var(--font)}
    font-size:.7rem;
    font-weight:800;
 }
-.product-card-body{padding:14px 14px 16px}
-.product-name{font-weight:600;font-size:.875rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
+.product-card-body{
+   padding:14px 14px 16px;
+}
+.product-name{
+   font-weight:600;
+   font-size:.875rem;
+   margin-bottom:4px;
+   white-space:nowrap;
+   overflow:hidden;
+   text-overflow:ellipsis;
+   color:var(--text);
+}
 .product-name:hover{color:var(--primary)}
 .product-rating{display:flex;align-items:center;gap:4px;font-size:.77rem;color:var(--muted);margin-bottom:9px}
 .product-rating i{color:var(--accent);font-size:.7rem}
