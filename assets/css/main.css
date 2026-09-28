@@ -504,7 +504,17 @@ input,select,textarea{font-family:var(--font)}
    transition:transform .5s cubic-bezier(.25,.8,.25,1);
 }
 .product-card:hover .product-card-img img{transform:scale(1.07)}
-.discount-badge{position:absolute;top:10px;left:10px;background:var(--primary);color:var(--white);border-radius:100px;padding:3px 10px;font-size:.7rem;font-weight:800}
+.discount-badge{
+   position:absolute;
+   top:10px;
+   left:10px;
+   background:var(--primary);
+   color:var(--white);
+   border-radius:100px;
+   padding:3px 10px;
+   font-size:.7rem;
+   font-weight:800;
+}
 .product-card-body{padding:14px 14px 16px}
 .product-name{font-weight:600;font-size:.875rem;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)}
 .product-name:hover{color:var(--primary)}
