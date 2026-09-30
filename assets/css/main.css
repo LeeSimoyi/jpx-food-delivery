@@ -552,8 +552,15 @@ input,select,textarea{font-family:var(--font)}
    gap:6px;
    flex-wrap:wrap;
 }
-.price-main{font-weight:800;font-size:1rem;color:var(--text)}
-.price-unit{font-size:.7rem;color:var(--muted)}
+.price-main{
+   font-weight:800;
+   font-size:1rem;
+   color:var(--text);
+}
+.price-unit{
+   font-size:.7rem;
+   color:var(--muted);
+}
 .price-old{font-size:.78rem;color:var(--gray2);text-decoration:line-through!important}
 .product-add-btn{width:32px;height:32px;border-radius:50%;background:var(--primary);color:var(--white);border:none;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:transform .2s,box-shadow .2s;box-shadow:0 3px 10px rgba(232,71,10,.35);flex-shrink:0}
 .product-add-btn:hover{transform:scale(1.18);box-shadow:0 5px 16px rgba(232,71,10,.5)}
