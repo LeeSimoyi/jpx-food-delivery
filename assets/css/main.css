@@ -629,8 +629,20 @@ input,select,textarea{font-family:var(--font)}
    align-items:center;
    gap:8px;
 }
-.cart-panel-hd h3 i{color:var(--primary)}
-.cart-panel-close{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--gray2);background:none;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-panel-hd h3 i{color:var(--primary);}
+.cart-panel-close{
+   width:36px;
+   height:36px;
+   border-radius:50%;
+   border:1.5px solid var(--gray2);
+   background:none;
+   cursor:pointer;
+   font-size:.9rem;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   transition:all .2s;
+}
 .cart-panel-close:hover{background:#FEE2E2;border-color:#FCA5A5;color:var(--red)}
 .cart-panel-body{flex:1;overflow-y:auto;padding:12px 22px}
 .cart-empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:52px 0;gap:12px;text-align:center;color:var(--muted)}
