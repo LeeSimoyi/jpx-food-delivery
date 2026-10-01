@@ -706,8 +706,25 @@ input,select,textarea{font-family:var(--font)}
    font-size:.875rem;
    margin-top:3px;
 }
-.cart-qty-row{display:flex;align-items:center;gap:6px;margin-top:5px}
-.cqb{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gray2);background:none;cursor:pointer;font-size:.68rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-qty-row{
+   display:flex;
+   align-items:center;
+   gap:6px;
+   margin-top:5px;
+}
+.cqb{
+   width:24px;
+   height:24px;
+   border-radius:50%;
+   border:1.5px solid var(--gray2);
+   background:none;
+   cursor:pointer;
+   font-size:.68rem;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   transition:all .2s;
+}
 .cqb:hover{border-color:var(--primary);background:var(--primary);color:var(--white)}
 .cqn{font-weight:700;font-size:.84rem;min-width:20px;text-align:center}
 .cart-item-del{background:none;border:none;cursor:pointer;color:var(--gray2);font-size:.82rem;transition:color .2s;padding:2px;align-self:flex-start;flex-shrink:0}
