@@ -684,10 +684,28 @@ input,select,textarea{font-family:var(--font)}
    background:var(--bg);
    border:1px solid var(--gray);
 }
-.cart-item-info{flex:1;min-width:0}
-.cart-item-name{font-weight:600;font-size:.855rem;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cart-item-unit{font-size:.74rem;color:var(--muted)}
-.cart-item-price{font-weight:700;color:var(--primary);font-size:.875rem;margin-top:3px}
+.cart-item-info{
+   flex:1;
+   min-width:0;
+}
+.cart-item-name{
+   font-weight:600;
+   font-size:.855rem;
+   margin-bottom:2px;
+   white-space:nowrap;
+   overflow:hidden;
+   text-overflow:ellipsis;
+}
+.cart-item-unit{
+   font-size:.74rem;
+   color:var(--muted);
+}
+.cart-item-price{
+   font-weight:700;
+   color:var(--primary);
+   font-size:.875rem;
+   margin-top:3px;
+}
 .cart-qty-row{display:flex;align-items:center;gap:6px;margin-top:5px}
 .cqb{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--gray2);background:none;cursor:pointer;font-size:.68rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .cqb:hover{border-color:var(--primary);background:var(--primary);color:var(--white)}
