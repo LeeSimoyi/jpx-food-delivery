@@ -643,8 +643,16 @@ input,select,textarea{font-family:var(--font)}
    justify-content:center;
    transition:all .2s;
 }
-.cart-panel-close:hover{background:#FEE2E2;border-color:#FCA5A5;color:var(--red)}
-.cart-panel-body{flex:1;overflow-y:auto;padding:12px 22px}
+.cart-panel-close:hover{
+   background:#FEE2E2;
+   border-color:#FCA5A5;
+   color:var(--red);
+}
+.cart-panel-body{
+   flex:1;
+   overflow-y:auto;
+   padding:12px 22px;
+}
 .cart-empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:52px 0;gap:12px;text-align:center;color:var(--muted)}
 .cart-empty-state i{font-size:2.8rem;color:var(--gray2)}
 .cart-empty-state p{font-size:.875rem}
