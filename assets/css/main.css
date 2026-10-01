@@ -663,11 +663,27 @@ input,select,textarea{font-family:var(--font)}
    text-align:center;
    color:var(--muted);
 }
-.cart-empty-state i{font-size:2.8rem;color:var(--gray2)}
-.cart-empty-state p{font-size:.875rem}
-.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray)}
-.cart-item:last-child{border-bottom:none}
-.cart-item-img{width:58px;height:58px;border-radius:11px;object-fit:cover;flex-shrink:0;background:var(--bg);border:1px solid var(--gray)}
+.cart-empty-state i{
+   font-size:2.8rem;
+   color:var(--gray2);
+}
+.cart-empty-state p{font-size:.875rem;}
+.cart-item{
+   display:flex;
+   gap:12px;
+   padding:12px 0;
+   border-bottom:1px solid var(--gray);
+}
+.cart-item:last-child{border-bottom:none;}
+.cart-item-img{
+   width:58px;
+   height:58px;
+   border-radius:11px;
+   object-fit:cover;
+   flex-shrink:0;
+   background:var(--bg);
+   border:1px solid var(--gray);
+}
 .cart-item-info{flex:1;min-width:0}
 .cart-item-name{font-weight:600;font-size:.855rem;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cart-item-unit{font-size:.74rem;color:var(--muted)}
