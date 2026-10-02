@@ -747,9 +747,18 @@ input,select,textarea{font-family:var(--font)}
    align-self:flex-start;
    flex-shrink:0;
 }
-.cart-item-del:hover{color:var(--red)}
-.cart-panel-ft{padding:16px 22px;border-top:1px solid var(--gray)}
-.cart-sum-row{display:flex;justify-content:space-between;font-size:.875rem;margin-bottom:7px;color:var(--muted)}
+.cart-item-del:hover{color:var(--red);}
+.cart-panel-ft{
+   padding:16px 22px;
+   border-top:1px solid var(--gray);
+}
+.cart-sum-row{
+   display:flex;
+   justify-content:space-between;
+   font-size:.875rem;
+   margin-bottom:7px;
+   color:var(--muted);
+}
 .cart-sum-row.delivery .v{color:var(--green);font-weight:600}
 .cart-sum-row.total{font-weight:700;font-size:1.05rem;color:var(--text);border-top:1px solid var(--gray);margin-top:8px;padding-top:11px;margin-bottom:0}
 .cart-checkout-btn{width:100%;margin-top:14px;padding:14px;font-size:.93rem;border-radius:14px;border:none;background:var(--primary);color:var(--white);font-weight:700;font-family:var(--font);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 16px rgba(232,71,10,.35);transition:transform .2s,background .2s}
