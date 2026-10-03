@@ -1066,8 +1066,15 @@ input,select,textarea{font-family:var(--font)}
 .nav-search-mobile-btn{ display:none; }
 
 /* ── ADMIN DASHBOARD STYLES ── */
-.admin-body{ background:var(--bg); min-height:100vh; }
-.admin-layout{ display:flex; height:100vh; overflow:hidden; }
+.admin-body{ 
+  background:var(--bg); 
+  min-height:100vh;
+}
+.admin-layout{ 
+  display:flex; 
+  height:100vh; 
+  overflow:hidden;
+}
 .admin-sidebar{
   width:260px;
   flex-shrink:0; 
