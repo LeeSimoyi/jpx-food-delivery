@@ -829,7 +829,17 @@ input,select,textarea{font-family:var(--font)}
 @keyframes tIn{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
 @keyframes tOut{to{transform:translateX(110%);opacity:0}}
 /* MODAL */
-.modal-backdrop{position:fixed;inset:0;z-index:8000;background:rgba(28,17,1,.65);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-backdrop{
+   position:fixed;
+   inset:0;
+   z-index:8000;
+   background:rgba(28,17,1,.65);
+   backdrop-filter:blur(6px);
+   display:none;
+   align-items:center;
+   justify-content:center;
+   padding:20px;
+}
 .modal-backdrop.open{display:flex}
 .modal-box{background:var(--white);border-radius:22px;padding:40px 34px;max-width:420px;width:100%;box-shadow:var(--sh-lg);animation:mPop .4s cubic-bezier(.34,1.56,.64,1);text-align:center}
 @keyframes mPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
