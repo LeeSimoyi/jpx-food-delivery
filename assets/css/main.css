@@ -1143,7 +1143,10 @@ input,select,textarea{font-family:var(--font)}
   margin-bottom:2px; 
   color:rgba(255,255,255,.62);
 }
-.admin-nav-item i{ width:18px; text-align:center; }
+.admin-nav-item i{ 
+  width:18px; 
+  text-align:center;
+}
 .admin-nav-item:hover{ background:rgba(255,255,255,.06); color:#fff; }
 .admin-nav-item.active{ background:var(--primary); color:#fff; font-weight:600; }
 .admin-nav-badge{
