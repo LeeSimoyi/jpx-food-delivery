@@ -1061,8 +1061,18 @@ input,select,textarea{font-family:var(--font)}
    font-size:.85rem; 
    flex-shrink:0; 
 }
-.search-empty{ padding:24px; text-align:center; color:var(--muted); font-size:.85rem; }
-.search-empty i{ display:block; font-size:1.8rem; margin-bottom:8px; color:var(--gray2); }
+.search-empty{ 
+   padding:24px; 
+   text-align:center; 
+   color:var(--muted); 
+   font-size:.85rem; 
+}
+.search-empty i{ 
+   display:block; 
+   font-size:1.8rem; 
+   margin-bottom:8px;
+   color:var(--gray2); 
+}
 .search-view-all{
   display:flex; 
   align-items:center;
