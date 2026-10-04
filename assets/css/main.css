@@ -856,7 +856,11 @@ input,select,textarea{font-family:var(--font)}
 .modal-icon.warn{background:rgba(245,166,35,.12);color:#D97706}
 .modal-icon.danger{background:rgba(209,48,48,.1);color:var(--red)}
 .modal-icon.success{background:rgba(46,125,82,.1);color:var(--green)}
-.modal-box h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.modal-box h3{
+   font-size:1.2rem;
+   font-weight:700;
+   margin-bottom:8px;
+}
 .modal-box p{
    color:var(--muted);
    font-size:.88rem;
