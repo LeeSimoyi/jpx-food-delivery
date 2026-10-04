@@ -841,7 +841,16 @@ input,select,textarea{font-family:var(--font)}
    padding:20px;
 }
 .modal-backdrop.open{display:flex}
-.modal-box{background:var(--white);border-radius:22px;padding:40px 34px;max-width:420px;width:100%;box-shadow:var(--sh-lg);animation:mPop .4s cubic-bezier(.34,1.56,.64,1);text-align:center}
+.modal-box{
+   background:var(--white);
+   border-radius:22px;
+   padding:40px 34px;
+   max-width:420px;
+   width:100%;
+   box-shadow:var(--sh-lg);
+   animation:mPop .4s cubic-bezier(.34,1.56,.64,1);
+   text-align:center;
+}
 @keyframes mPop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 .modal-icon{width:62px;height:62px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
 .modal-icon.warn{background:rgba(245,166,35,.12);color:#D97706}
