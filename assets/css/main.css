@@ -940,10 +940,6 @@ input,select,textarea{font-family:var(--font)}
   .modal-btns{flex-direction:column}
 }
 
-/* ╔══════════════════════════════════════════════════════════╗
-   ║  ADVANCED STYLING LAYER v3                                ║
-   ╚══════════════════════════════════════════════════════════╝ */
-
 /* ── Refined depth & micro-interactions ── */
 .product-card{
   border-radius: var(--r-lg);
@@ -954,9 +950,11 @@ input,select,textarea{font-family:var(--font)}
 }
 .product-card-img::after{
   content:'';
-  position:absolute; inset:0;
+  position:absolute; 
+  inset:0;
   background: linear-gradient(180deg, rgba(28,17,1,0) 55%, rgba(28,17,1,.35) 100%);
-  opacity:0; transition: opacity .35s ease;
+  opacity:0; 
+  transition: opacity .35s ease;
   pointer-events:none;
 }
 .product-card:hover .product-card-img::after{ opacity:1; }
