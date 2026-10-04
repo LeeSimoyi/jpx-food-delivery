@@ -863,10 +863,21 @@ input,select,textarea{font-family:var(--font)}
    line-height:1.6;
    margin-bottom:22px;
 }
-.modal-btns{display:flex;gap:10px}
-.modal-btns button{flex:1;padding:11px;border-radius:100px}
+.modal-btns{
+   display:flex;
+   gap:10px;
+}
+.modal-btns button{
+   flex:1;
+   padding:11px;
+   border-radius:100px;
+}
 /* FORMS */
-.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group{
+   display:flex;
+   flex-direction:column;
+   gap:5px;
+}
 .form-label{font-weight:600;font-size:.855rem}
 .form-input,.form-select,.form-textarea{width:100%;max-width:100%;padding:9px 12px;border-radius:var(--r);border:1.5px solid var(--gray2);background:var(--white);font-family:var(--font);font-size:.84rem;color:var(--text);outline:none;transition:border-color var(--tr),box-shadow var(--tr);-webkit-appearance:none}
 /* Standalone (non-grid) input rows get a sensible cap so they never stretch edge-to-edge */
