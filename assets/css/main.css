@@ -1051,8 +1051,16 @@ input,select,textarea{font-family:var(--font)}
   overflow:hidden; 
   text-overflow:ellipsis;
 }
-.search-result-info span{ font-size:.74rem; color:var(--muted); }
-.search-result-price{ font-weight:700; color:var(--primary); font-size:.85rem; flex-shrink:0; }
+.search-result-info span{ 
+   font-size:.74rem; 
+   color:var(--muted); 
+}
+.search-result-price{ 
+   font-weight:700; 
+   color:var(--primary);
+   font-size:.85rem; 
+   flex-shrink:0; 
+}
 .search-empty{ padding:24px; text-align:center; color:var(--muted); font-size:.85rem; }
 .search-empty i{ display:block; font-size:1.8rem; margin-bottom:8px; color:var(--gray2); }
 .search-view-all{
