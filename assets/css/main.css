@@ -1378,12 +1378,20 @@ input,select,textarea{font-family:var(--font)}
 
 /* Admin tables */
 .admin-card{
-  background:var(--white); border:1px solid var(--gray); border-radius:18px;
-  overflow:hidden; margin-bottom:20px;
+  background:var(--white); 
+  border:1px solid var(--gray); 
+  border-radius:18px;
+  overflow:hidden;
+  margin-bottom:20px;
 }
 .admin-card-hd{
-  padding:18px 22px; border-bottom:1px solid var(--gray);
-  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  padding:18px 22px; 
+  border-bottom:1px solid var(--gray);
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px; 
+  flex-wrap:wrap;
 }
 .admin-card-hd h3{ font-size:.95rem; font-weight:700; }
 .admin-table-wrap{ overflow-x:auto; }
