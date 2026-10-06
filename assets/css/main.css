@@ -977,10 +977,15 @@ input,select,textarea{font-family:var(--font)}
 }
 @media(max-width:480px){
   .grid-4,.grid-5{grid-template-columns:repeat(2,1fr)}
-  .grid-3{grid-template-columns:1fr}
-  .toast-wrap{bottom:12px;right:8px;left:8px;width:auto}
-  .modal-box{padding:26px 16px}
-  .modal-btns{flex-direction:column}
+  .grid-3{grid-template-columns:1fr;}
+  .toast-wrap{
+     bottom:12px;
+     right:8px;
+     left:8px;
+     width:auto;
+  }
+  .modal-box{padding:26px 16px;}
+  .modal-btns{flex-direction:column;}
 }
 
 /* ── Refined depth & micro-interactions ── */
