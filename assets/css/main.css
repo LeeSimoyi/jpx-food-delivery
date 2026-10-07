@@ -1389,8 +1389,14 @@ input,select,textarea{font-family:var(--font)}
 }
 .admin-stat-card:hover{ transform:translateY(-4px); box-shadow:0 12px 28px rgba(28,17,1,.08); }
 .asc-icon{
-  width:50px; height:50px; border-radius:14px; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+  width:50px; 
+  height:50px; 
+  border-radius:14px; 
+  flex-shrink:0;
+  display:flex;
+  align-items:center; 
+  justify-content:center; 
+  font-size:1.2rem;
 }
 .asc-icon.orange{ background:var(--primary-lt); color:var(--primary); }
 .asc-icon.green{ background:rgba(46,125,82,.1); color:var(--green); }
