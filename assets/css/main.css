@@ -1379,7 +1379,13 @@ input,select,textarea{font-family:var(--font)}
   background:var(--primary); 
   border:2px solid var(--white);
 }
-.admin-content{ flex:1; padding:24px; max-width:1400px; width:100%; margin:0 auto; }
+.admin-content{ 
+   flex:1; 
+   padding:24px; 
+   max-width:1400px; 
+   width:100%; 
+   margin:0 auto; 
+}
 
 .admin-overlay{
   display:none; 
