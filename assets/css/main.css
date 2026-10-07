@@ -1466,9 +1466,16 @@ input,select,textarea{font-family:var(--font)}
 .admin-table-wrap{ overflow-x:auto; }
 .admin-table{ width:100%; border-collapse:collapse; min-width:640px; }
 .admin-table th{
-  text-align:left; padding:12px 22px; font-size:.72rem; font-weight:700;
-  text-transform:uppercase; letter-spacing:.05em; color:var(--muted);
-  background:var(--bg); border-bottom:1px solid var(--gray); white-space:nowrap;
+  text-align:left;
+  padding:12px 22px; 
+  font-size:.72rem; 
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em; 
+  color:var(--muted);
+  background:var(--bg); 
+  border-bottom:1px solid var(--gray); 
+  white-space:nowrap;
 }
 .admin-table td{
   padding:14px 22px; font-size:.84rem; border-bottom:1px solid var(--gray); vertical-align:middle;
