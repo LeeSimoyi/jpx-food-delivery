@@ -933,9 +933,25 @@ input,select,textarea{font-family:var(--font)}
    transform:translateY(20px);
    transition:opacity .6s ease,transform .6s ease;transition-delay:var(--delay,0s);
 }
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.visible{
+   opacity:1;
+   transform:translateY(0);
+}
 /* SECTION HELPERS */
-.sec-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;background:var(--primary-lt);color:var(--primary);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+.sec-tag{
+   display:inline-flex;
+   align-items:center;
+   gap:6px;
+   padding:5px 14px;
+   border-radius:100px;
+   background:var(--primary-lt);
+   color:var(--primary);
+   font-size:.75rem;
+   font-weight:700;
+   letter-spacing:.07em;
+   text-transform:uppercase;
+   margin-bottom:10px;
+}
 .sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:clamp(22px,3.5vw,38px);flex-wrap:wrap;gap:12px}
 .sec-hdr.center{flex-direction:column;align-items:center;text-align:center}
 .sec-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;margin-bottom:4px}
