@@ -1355,13 +1355,23 @@ input,select,textarea{font-family:var(--font)}
 }
 .admin-icon-btn:hover{ border-color:var(--primary); color:var(--primary); background:var(--primary-lt); }
 .admin-notif-dot{
-  position:absolute; top:6px; right:7px; width:8px; height:8px; border-radius:50%;
-  background:var(--primary); border:2px solid var(--white);
+  position:absolute; 
+  top:6px; 
+  right:7px; 
+  width:8px; 
+  height:8px; 
+  border-radius:50%;
+  background:var(--primary); 
+  border:2px solid var(--white);
 }
 .admin-content{ flex:1; padding:24px; max-width:1400px; width:100%; margin:0 auto; }
 
 .admin-overlay{
-  display:none; position:fixed; inset:0; background:rgba(28,17,1,.5); z-index:99;
+  display:none; 
+  position:fixed; 
+  inset:0; 
+  background:rgba(28,17,1,.5); 
+  z-index:99;
 }
 .admin-overlay.open{ display:block; }
 
