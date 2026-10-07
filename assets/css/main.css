@@ -960,8 +960,16 @@ input,select,textarea{font-family:var(--font)}
    flex-wrap:wrap;
    gap:12px;
 }
-.sec-hdr.center{flex-direction:column;align-items:center;text-align:center}
-.sec-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;margin-bottom:4px}
+.sec-hdr.center{
+   flex-direction:column;
+   align-items:center;
+   text-align:center;
+}
+.sec-title{
+   font-size:clamp(1.4rem,3vw,1.9rem);
+   font-weight:800;
+   margin-bottom:4px;
+}
 .sec-sub{color:var(--muted);font-size:.855rem}
 .view-all{display:flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:.875rem;white-space:nowrap;transition:gap var(--tr)}
 .view-all:hover{gap:10px}
