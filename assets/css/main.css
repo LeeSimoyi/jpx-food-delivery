@@ -1460,9 +1460,18 @@ input,select,textarea{font-family:var(--font)}
 .admin-status-badge.cancelled{ background:rgba(209,48,48,.1); color:var(--red); }
 .admin-row-actions{ display:flex; gap:7px; flex-wrap:wrap; }
 .admin-action-btn{
-  width:32px; height:32px; border-radius:9px; border:1.5px solid var(--gray);
-  background:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  font-size:.78rem; transition:all .2s; color:var(--text2);
+  width:32px; 
+  height:32px; 
+  border-radius:9px; 
+  border:1.5px solid var(--gray);
+  background:none; 
+  cursor:pointer; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center;
+  font-size:.78rem; 
+  transition:all .2s; 
+  color:var(--text2);
 }
 .admin-action-btn:hover{ border-color:var(--primary); color:var(--primary); background:var(--primary-lt); }
 .admin-action-btn.approve:hover{ border-color:var(--green); color:var(--green); background:rgba(46,125,82,.08); }
