@@ -1405,7 +1405,12 @@ input,select,textarea{font-family:var(--font)}
 .admin-overlay.open{ display:block; }
 
 /* Admin stat cards */
-.admin-stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:24px; }
+.admin-stats-grid{ 
+  display:grid; 
+  grid-template-columns:repeat(4,1fr); 
+  gap:18px; 
+  margin-bottom:24px;
+}
 .admin-stat-card{
   background:var(--white); 
   border-radius:18px; 
@@ -1416,7 +1421,10 @@ input,select,textarea{font-family:var(--font)}
   gap:16px;
   transition: transform .25s, box-shadow .25s;
 }
-.admin-stat-card:hover{ transform:translateY(-4px); box-shadow:0 12px 28px rgba(28,17,1,.08); }
+.admin-stat-card:hover{ 
+  transform:translateY(-4px); 
+  box-shadow:0 12px 28px rgba(28,17,1,.08);
+}
 .asc-icon{
   width:50px; 
   height:50px; 
