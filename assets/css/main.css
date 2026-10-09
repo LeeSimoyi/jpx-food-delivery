@@ -970,8 +970,20 @@ input,select,textarea{font-family:var(--font)}
    font-weight:800;
    margin-bottom:4px;
 }
-.sec-sub{color:var(--muted);font-size:.855rem}
-.view-all{display:flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:.875rem;white-space:nowrap;transition:gap var(--tr)}
+.sec-sub{
+   color:var(--muted);
+   font-size:.855rem;
+}
+.view-all{
+   display:flex;
+   align-items:center;
+   gap:6px;
+   color:var(--primary);
+   font-weight:600;
+   font-size:.875rem;
+   white-space:nowrap;
+   transition:gap var(--tr);
+}
 .view-all:hover{gap:10px}
 /* PAGE HERO */
 .page-hero{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:52px var(--g) 44px;text-align:center;position:relative;overflow:hidden}
