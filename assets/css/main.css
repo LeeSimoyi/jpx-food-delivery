@@ -1539,8 +1539,12 @@ input,select,textarea{font-family:var(--font)}
 .admin-form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .admin-form-grid .full{ grid-column:1/-1; }
 .admin-img-upload{
-  border:2px dashed var(--gray2); border-radius:14px; padding:24px;
-  text-align:center; cursor:pointer; transition: border-color .2s, background .2s;
+  border:2px dashed var(--gray2); 
+  border-radius:14px;
+  padding:24px;
+  text-align:center; 
+  cursor:pointer; 
+  transition: border-color .2s, background .2s;
 }
 .admin-img-upload:hover{ border-color:var(--primary); background:var(--primary-lt); }
 .admin-img-upload i{ font-size:1.8rem; color:var(--gray2); margin-bottom:8px; display:block; }
