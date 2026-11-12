@@ -107,8 +107,16 @@
     }
 
     /* Expandable payment detail panels */
-    .pay-detail-panel{max-height:0;overflow:hidden;transition:max-height .35s ease;margin-top:-3px}
-    .pay-detail-panel.open{max-height:420px;margin-top:10px}
+    .pay-detail-panel{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+      margin-top:-3px;
+    }
+    .pay-detail-panel.open{
+      max-height:420px;
+      margin-top:10px;
+    }
     .pay-detail-inner{border:1.5px solid var(--gray);border-radius:14px;padding:18px 20px;background:var(--bg)}
     .pay-detail-inner h4{font-size:.84rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
     .pay-detail-inner h4 i{color:var(--primary)}
