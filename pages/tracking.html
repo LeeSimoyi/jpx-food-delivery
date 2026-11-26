@@ -76,9 +76,19 @@
     .sp-delivered{background:rgba(46,125,82,.1);color:var(--green)}
     .sp-cancelled{background:rgba(209,48,48,.1);color:var(--red)}
 
-    .progress-bar-wrap{padding:18px 24px 0}
-    .progress-bar{height:8px;background:var(--gray);border-radius:100px;overflow:hidden}
-    .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:100px;transition:width 1s ease}
+    .progress-bar-wrap{padding:18px 24px 0;}
+    .progress-bar{
+      height:8px;
+      background:var(--gray);
+      border-radius:100px;
+      overflow:hidden;
+    }
+    .progress-fill{
+      height:100%;
+      background:linear-gradient(90deg,var(--primary),var(--primary2));
+      border-radius:100px;
+      transition:width 1s ease;
+    }
     .progress-eta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:.78rem;color:var(--muted)}
     .progress-eta strong{color:var(--text)}
     .live-pulse{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-weight:700;font-size:.74rem}
